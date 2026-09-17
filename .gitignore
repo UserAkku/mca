@@ -1,4 +1,3 @@
 .DS_Store
-*.pdf
-assignments *.md
 .vercel
+dist/
