@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSA222 — Complete Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&display=swap');
+:root{
+  --paper:#fef9ef;--paper2:#fffdf5;--ink:#1a1a2e;
+  --red:#c0392b;--blue:#1565c0;--pencil:#555;
+  --hy:#fff176;--ho:#ffd180;--hg:#b9f6ca;--hp:#e1bee7;
+  --rule:#e0d8c8;--marg:#e8c97a;--bord:#c8b89a;
+  --warn-bg:#fff3cd;--warn-b:#e0a800;
+  --tip-bg:#d4edda;--tip-b:#28a745;
+  --info-bg:#e3f2fd;--info-b:#1565c0;
+  --key-bg:#fff8e1;--key-b:#f57f17;
+  --rule-bg:#fce4ec;--rule-b:#c62828;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#c8b89a;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(0,0,0,.015) 40px,rgba(0,0,0,.015) 41px);font-family:'Kalam','Caveat',cursive;color:var(--ink);min-height:100vh}
+/* TOPBAR */
+.topbar{background:#1a0a05;color:#f5e6c8;padding:8px 18px;display:flex;align-items:center;justify-content:space-between;font-family:'Kalam',cursive;position:sticky;top:0;z-index:1000;box-shadow:0 3px 10px rgba(0,0,0,.5);gap:8px;flex-wrap:nowrap}
+.topbar-nav{display:flex;align-items:center;gap:3px;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.nav-group-label{font-size:.68rem;color:#c8a96e;opacity:.8;white-space:nowrap;font-style:italic;padding:0 3px}
+.nav-sep{color:#5a3a1a;font-size:.9rem;padding:0 2px}
+
+.topbar-title{font-size:1rem;font-weight:700;color:#ffd180;white-space:nowrap}
+.topbar-nav{display:flex;gap:4px;flex-wrap:wrap}
+.topbar-nav a{color:#f5e6c8;text-decoration:none;padding:3px 8px;border:1px solid #5a3a1a;border-radius:3px;font-size:.75rem;transition:background .15s}
+.topbar-nav a:hover{background:#5a3a1a}
+/* WRAP */
+.wrap{max-width:1050px;margin:0 auto;padding:22px 14px}
+/* COVER */
+.cover{background:var(--paper);border:3px solid #8b7355;border-radius:4px;padding:34px 30px;margin-bottom:26px;position:relative;box-shadow:5px 5px 14px rgba(0,0,0,.3);background-image:repeating-linear-gradient(transparent,transparent 27px,var(--rule) 27px,var(--rule) 28px)}
+.cover::before{content:'';position:absolute;left:58px;top:0;bottom:0;width:2px;background:var(--marg);opacity:.55}
+.cover-h1{font-size:2rem;font-weight:700;color:var(--red);text-align:center;margin-bottom:6px;text-decoration:underline;text-underline-offset:6px}
+.cover-h2{font-size:1.2rem;color:var(--blue);text-align:center;margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.tag{background:#1a0a05;color:#f5e6c8;padding:4px 12px;border-radius:2px;font-size:.85rem}
+.banner{margin-top:18px;padding:13px 16px;background:var(--hy);border-left:4px solid #f0a500;border-radius:2px;font-size:.97rem;line-height:1.75}
+/* PAGE */
+.page{background:var(--paper);border:2px solid var(--bord);border-radius:3px;margin-bottom:28px;position:relative;box-shadow:4px 4px 12px rgba(0,0,0,.18);overflow:hidden;background-image:repeating-linear-gradient(transparent,transparent 27px,var(--rule) 27px,var(--rule) 28px)}
+.page::before{content:'';position:absolute;left:54px;top:0;bottom:0;width:2px;background:var(--marg);opacity:.45;pointer-events:none}
+.ph{background:#1a0a05;color:#f5e6c8;padding:11px 18px 11px 62px;font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag-sm{background:#5a3a1a;color:#ffd180;padding:2px 9px;border-radius:2px;font-size:.78rem}
+.pc{padding:20px 20px 24px 68px}
+/* HEADINGS */
+h2.sh{font-size:1.55rem;color:var(--red);border-bottom:2px dashed var(--red);padding-bottom:5px;margin:24px 0 13px;font-weight:700}
+h3.th{font-size:1.22rem;color:var(--blue);margin:18px 0 9px;font-weight:700}
+h4.subh{font-size:1.02rem;color:#6a3d2b;margin:13px 0 7px;font-weight:700;text-decoration:underline dotted;text-underline-offset:3px}
+p{line-height:1.78;margin-bottom:11px;font-size:.98rem}
+strong{font-weight:700}
+/* HIGHLIGHTS */
+.hy{background:var(--hy);padding:0 3px}
+.ho{background:var(--ho);padding:0 3px}
+.hg{background:var(--hg);padding:0 3px}
+.hp{background:var(--hp);padding:0 3px}
+/* CALLOUTS */
+.callout{border-left:4px solid;padding:10px 14px;margin:13px 0;border-radius:0 4px 4px 0;font-size:.95rem;line-height:1.72}
+.cw{background:var(--warn-bg);border-color:var(--warn-b)}
+.ct{background:var(--tip-bg);border-color:var(--tip-b)}
+.ci{background:var(--info-bg);border-color:var(--info-b)}
+.ck{background:var(--key-bg);border-color:var(--key-b)}
+.cr{background:var(--rule-bg);border-color:var(--rule-b)}
+/* TABLES */
+.tw{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;font-size:.9rem;min-width:200px}
+th{background:#1a0a05;color:#f5e6c8;padding:5px 11px;text-align:center;font-family:'Kalam',cursive}
+td{padding:4px 11px;text-align:center;border:1px solid var(--bord);font-size:.9rem}
+tr:nth-child(even) td{background:#faf6ef}
+tr.red td{background:#ffccbc;color:#b71c1c}
+tr.grn td{background:var(--hg)}
+/* CODE */
+.code{background:#f5efe0;color:#2c1a0e;border-radius:2px;padding:14px 16px 14px 20px;font-family:'Courier New',monospace;font-size:.83rem;line-height:1.82;margin:13px 0;overflow-x:auto;border-left:4px solid #c0392b;border-top:1px dashed #c8b89a;border-bottom:1px dashed #c8b89a;border-right:1px dashed #c8b89a;white-space:pre;box-shadow:inset 0 0 0 0 transparent, 2px 2px 6px rgba(0,0,0,.08);background-image:repeating-linear-gradient(transparent,transparent 27px,#e8dcc8 27px,#e8dcc8 28px)}
+.kw{color:#1565c0;font-weight:700}.ty{color:#6a1b9a;font-weight:700}.cm{color:#7d6608;font-style:italic;opacity:.85}.num{color:#b71c1c;font-weight:600}.fn{color:#1b5e20;font-weight:700}.sig{color:#4e342e}.str{color:#1a5276}
+/* FORMULA */
+.formula{background:#fffde7;border:2px solid #f9a825;border-radius:4px;padding:8px 16px;margin:11px 0;font-size:1.08rem;font-weight:700;text-align:center;color:#1a237e}
+/* GRID */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:11px 0}
+@media(max-width:550px){.grid2{grid-template-columns:1fr}}
+.card{border:2px solid var(--bord);border-radius:4px;overflow:hidden}
+.card-h{background:#1a0a05;color:#f5e6c8;padding:5px 11px;font-size:.9rem;font-weight:700;font-family:'Kalam',cursive}
+.card-b{padding:9px 12px;font-size:.9rem;line-height:1.72;background:var(--paper2)}
+/* STEPS */
+.steps{list-style:none;margin:9px 0}
+.steps li{display:flex;gap:9px;margin-bottom:8px;font-size:.95rem;line-height:1.72}
+.sn{background:var(--red);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px}
+/* LIST */
+ul.nl{list-style:none;margin:8px 0}
+ul.nl li{padding:2px 0 2px 18px;position:relative;font-size:.94rem;line-height:1.72}
+ul.nl li::before{content:"\2192";color:var(--red);position:absolute;left:0;font-weight:700}
+/* STICKY */
+.sticky{background:#fff9c4;border:1px solid #f9a825;border-radius:0 0 4px 4px;padding:10px 14px;margin:12px 0;position:relative;box-shadow:2px 3px 6px rgba(0,0,0,.13);font-size:.93rem;line-height:1.72}
+.sticky::before{content:'';position:absolute;top:-5px;left:14px;width:36px;height:7px;background:#f0c040;border-radius:2px}
+/* DIVIDER */
+hr.d{border:none;border-top:2px dashed var(--bord);margin:20px 0}
+/* QUIZ */
+.qs{background:#fffde7;border:2px dashed #f57f17;border-radius:6px;padding:16px 20px;margin:16px 0}
+.qs h3{font-size:1.25rem;color:#e65100;margin-bottom:12px;font-weight:700}
+.qc{background:#fff;border:1px solid #ffe082;border-radius:4px;padding:11px 14px;margin-bottom:11px}
+.qn{font-size:.8rem;color:#bf360c;font-weight:700;margin-bottom:3px}
+.qt{font-size:.96rem;margin-bottom:7px}
+.qa{background:var(--hg);border-left:3px solid #2e7d32;padding:6px 10px;border-radius:0 4px 4px 0;margin-top:6px;font-size:.9rem}
+.qe{background:var(--info-bg);border-left:3px solid var(--blue);padding:6px 10px;border-radius:0 4px 4px 0;margin-top:4px;font-size:.87rem;line-height:1.72}
+/* ASSIGN */
+.as{background:#f3e5f5;border:2px dashed #7b1fa2;border-radius:6px;padding:16px 20px;margin:16px 0}
+.as h3{font-size:1.25rem;color:#4a148c;margin-bottom:12px;font-weight:700}
+.ac{background:#fff;border:1px solid #ce93d8;border-radius:4px;padding:12px 14px;margin-bottom:14px}
+.ah{display:flex;align-items:center;gap:9px;margin-bottom:8px;flex-wrap:wrap}
+.an{font-weight:700;color:#4a148c;font-size:1rem}
+.diff{padding:2px 7px;border-radius:3px;font-size:.76rem;font-weight:700}
+.de{background:#c8e6c9;color:#1b5e20}.dm{background:#fff9c4;color:#f57f17}.dh{background:#ffcdd2;color:#b71c1c}
+.at{font-size:.94rem;margin-bottom:9px;line-height:1.72}
+.sl{font-weight:700;color:#2e7d32;font-size:.88rem;margin-bottom:4px}
+/* BTT */
+.btt{position:fixed;bottom:20px;right:20px;background:#1a0a05;color:#f5e6c8;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.4);z-index:900}
+.btt:hover{background:#5a3a1a}
+@media(max-width:700px){.pc{padding:15px 13px 18px 15px}.page::before{display:none}.cover-h1{font-size:1.4rem}}
+dl.def dt{font-weight:700;color:var(--red);font-size:.97rem;margin-top:8px}
+dl.def dd{margin-left:18px;font-size:.92rem;line-height:1.72;color:#2d2d4e}
+</style>
+</head>
+<body>
+<nav class="topbar" id="topbar">
+  <span class="topbar-title">&#128213; CSA222 Complete Notes</span>
+  <div class="topbar-nav">
+    <span class="nav-group-label">Lectures:</span>
+    <a href="#l01">L01</a><a href="#l02">L02</a><a href="#l03">L03</a>
+    <a href="#l04">L04</a><a href="#l05">L05</a><a href="#l06">L06</a><a href="#l07">L07</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-group-label">Labs:</span>
+    <a href="#lab1">Lab1</a><a href="#lab2">Lab2</a><a href="#lab3">Lab3</a>
+    <a href="#lab4">Lab4</a><a href="#lab5">Lab5</a><a href="#lab6">Lab6</a><a href="#lab7">Lab7</a>
+    <span class="nav-sep">|</span>
+    <a href="#assign">Assign</a><a href="#quiz">Quiz</a>
+  </div>
+</nav>
+<div class="wrap">
+<div class="cover" id="top">
+  <div class="cover-h1">CSA222: Modern Computer Architecture</div>
+  <div class="cover-h2">Ekdam Zero se Complete Notes &mdash; Labs + Lectures + Assignments + Quizzes</div>
+  <div class="tags">
+    <span class="tag">&#128302; Lab 1&ndash;7 (Full Detail)</span>
+    <span class="tag">&#128214; L01&ndash;L07 Lectures</span>
+    <span class="tag">&#9999;&#65039; Q1&ndash;Q26 Assignments</span>
+    <span class="tag">&#10067; Q1&ndash;Q35 Quizzes</span>
+    <span class="tag">&#128161; Verilog HDL</span>
+  </div>
+  <div class="banner">
+    <strong>&#9888;&#65039; Bhai, yeh notes ekdam zero se hain.</strong> Tu ek bhi class nahi gaya? Koi baat nahi. Yahan sab kuch hai &mdash; har lab ka har concept, har lecture ka har topic, saare assignments ke complete Verilog solutions, saare quiz ke answers with explanations. Koi bhi question aaye &mdash; subjective, MCQ, code, match-the-following, debug &mdash; yahan se cover ho jayega. Kahin aur nahi jaana!
+  </div>
+</div>
+
+<!-- ===== LECTURES ===== -->
+
+<!-- ======= L01 ======= -->
+<div class="page" id="l01">
+  <div class="ph"><span class="tag-sm">L01</span> Boolean Algebra &amp; Logic Gates &mdash; Ekdam Zero Se Shuru</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Pehle Samjho: Computer ke andar kya hota hai?</h2>
+<p>Tu jab Python mein <code>a + b</code> likhta hai, tab actually <strong>lakhon transistors ek saath</strong> switch karte hain. Har transistor ek chota switch hai &mdash; ya to band hai (0) ya khula hai (1). Bas itna. Aur in switches ko combine karke bante hain <strong>logic gates</strong>, gates se bante hain <strong>adders</strong>, adders se bante hain <strong>ALU</strong>, aur ALU se banta hai <strong>pura CPU</strong>.</p>
+
+<div class="callout ci"><strong>Abstraction Stack &mdash; Upar se Neeche:</strong><br>
+<strong>AI/ML Models</strong> (PyTorch, neural nets)<br>
+&#8595; <strong>Application Software</strong> (Python, your code)<br>
+&#8595; <strong>Operating System</strong> (Linux, Windows &mdash; manages hardware)<br>
+&#8595; <strong>ISA (Instruction Set Architecture)</strong> &mdash; CPU ki vocabulary: ADD, SUB, LOAD, STORE<br>
+&#8595; <strong>Datapath &amp; Control</strong> (registers, ALU, FSMs &mdash; ye course yahan focus karta hai!)<br>
+&#8595; <strong>Logic Gates</strong> (AND, OR, NOT &mdash; aaj yahan se shuru)<br>
+&#8595; <strong>Transistors</strong> (silicon switches, physical world)</div>
+
+<p>Ye course <strong>gates se datapath tak</strong> ka safar karaata hai. Tujhe A[i]=B[i]+C[i] ko Python se leke transistors tak trace karna aana chahiye. Aaj ka kaam: <strong>gates aur Boolean algebra</strong>.</p>
+
+<h2 class="sh">&#128302; Architecture vs Organisation &mdash; Difference Kya Hai?</h2>
+<div class="grid2">
+  <div class="card"><div class="card-h">&#127358; Architecture &mdash; "KYA" hai</div><div class="card-b">Programmer ko jo dikhta hai. Kaunse instructions available hain (ADD, SUB, JUMP). Kitne registers hain. ISA = contract between hardware and software.<br><br><em>Example: "Is CPU mein ADD instruction hai" &mdash; ye architecture hai.</em><br><br><strong>Same architecture, alag hardware chal sakta hai</strong>. ARM ka koi bhi CPU same code chalata hai, chahe Apple M4 ho ya Qualcomm Snapdragon.</div></div>
+  <div class="card"><div class="card-h">&#128290; Organisation &mdash; "KAISE" hai</div><div class="card-b">Implementation detail. ADD kaise physically banta hai. Pipeline kitne stages ka hai. Cache kitna bada. Ye programmer ko nahi dikhta.<br><br><em>Example: "ADD operation 1 clock cycle mein hota hai aur carry-lookahead adder use karta hai" &mdash; ye organisation hai.</em><br><br><strong>Apple M4 aur Qualcomm dono ARM ISA pe chal sakte hain but andar se bilkul alag hain.</strong></div></div>
+</div>
+
+<h2 class="sh">&#128302; Boolean Algebra Kya Hai? (George Boole, 1847)</h2>
+<p>Boolean algebra ek aisa math hai jahan <strong>sirf do values hote hain: 0 aur 1</strong>. George Boole ne 1847 mein ye system banaya tha for logical reasoning. Phir 1937 mein Claude Shannon ne prove kiya ki ye EXACTLY electronic circuits describe karta hai!</p>
+
+<div class="tw"><table>
+<tr><th>Symbol</th><th>Hardware Meaning</th><th>Software Meaning</th><th>Physical Meaning</th></tr>
+<tr><td><strong>1</strong></td><td>HIGH voltage (~3.3V)</td><td>TRUE</td><td>Switch ON</td></tr>
+<tr><td><strong>0</strong></td><td>LOW voltage (~0V)</td><td>FALSE</td><td>Switch OFF</td></tr>
+</table></div>
+
+<div class="callout ci"><strong>Kyun sirf 0 aur 1?</strong> Reliability ke liye! Agar tu "2.7V aur 3.1V alag hain" detect karne ki koshish kare, noise mein problem hogi. But "volts hai ya nahi" = easy! Threshold ke upar = 1, neeche = 0. Simple aur noise-resistant.</div>
+
+<h2 class="sh">&#128302; Logic Gates &mdash; Har Gate Ka DNA</h2>
+<p>Gate ek electrical circuit hai jo Boolean operation karta hai. Aaj <strong>7 gates</strong> padho &mdash; yahi teri poori digital duniya hai.</p>
+
+<h3 class="th">&#128268; AND Gate &mdash; "Dono chahiye"</h3>
+<p>Series mein do switches ki tarah. <strong>Dono ON hone chahiye</strong> tab hi output ON. Real example: "Alarm tab baje jab door bhi khuli HO aur motion bhi detect hua HO."</p>
+<div class="formula">Y = A &middot; B &nbsp;&nbsp;&nbsp;&nbsp; (Matlab: "A AND B")</div>
+<div class="tw"><table>
+<tr><th>A</th><th>B</th><th>Y = A&middot;B</th><th>Explanation</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>Dono switch band &rarr; current nahi</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>Pehla band &rarr; current nahi</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>Doosra band &rarr; current nahi</td></tr>
+<tr class="grn"><td>1</td><td>1</td><td>1</td><td>Dono ON &rarr; current jaata hai!</td></tr>
+</table></div>
+<div class="sticky">&#128161; Memory trick: "AND = Stingy gate" &mdash; output 1 tab hi deta hai jab DONO 1 hon. Sirf ek 1 mein satisfy nahi hota!</div>
+
+<h3 class="th">&#128268; OR Gate &mdash; "Koi bhi ek chalega"</h3>
+<p>Parallel mein do switches ki tarah. <strong>Koi bhi ek ON ho</strong> tab output ON. Real example: "Light on karo jab presence sensor OR motion sensor trigger ho."</p>
+<div class="formula">Y = A + B &nbsp;&nbsp;&nbsp;&nbsp; (Matlab: "A OR B", '+' ka matlab yahan OR hai, add nahi!)</div>
+<div class="tw"><table>
+<tr><th>A</th><th>B</th><th>Y = A+B</th><th>Explanation</th></tr>
+<tr class="red"><td>0</td><td>0</td><td>0</td><td>Dono band &rarr; current nahi (SIRF yahi case 0 hai!)</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>B ON hai kafi hai</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>A ON hai kafi hai</td></tr>
+<tr class="grn"><td>1</td><td>1</td><td>1</td><td>Dono ON, definitely 1</td></tr>
+</table></div>
+<div class="sticky">&#128161; Memory trick: "OR = Generous gate" &mdash; kisi bhi ek 1 se kush ho jaata hai. Sirf tabhi 0 deta hai jab dono 0 hon.</div>
+
+<h3 class="th">&#128268; NOT Gate &mdash; "Ulta kar do"</h3>
+<p>Simplest gate. <strong>Ek input, ek output &mdash; bas flip karo.</strong> Real example: "Active-LOW LED: logic 0 pe jalti hai, 1 pe bujhti hai." Uses: complement banane ke liye, active-low signals ke liye.</p>
+<div class="formula">Y = A' &nbsp;&nbsp;&nbsp;&nbsp; (also written &Agrave;, or ~A in Verilog)</div>
+<div class="tw"><table>
+<tr><th>A</th><th>Y = A'</th></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>0</td></tr>
+</table></div>
+
+<h3 class="th">&#128268; XOR Gate &mdash; "Ek ya doosra, dono nahi"</h3>
+<p><strong>Exclusive OR</strong>. Output 1 tab jab inputs <em>alag</em> hain. Output 0 tab jab inputs <em>same</em> hain. Real uses: <strong>adder ka SUM bit</strong>, <strong>parity checker</strong>, <strong>cryptography</strong>.</p>
+<div class="formula">Y = A &oplus; B &nbsp;&nbsp;&nbsp;&nbsp; (A XOR B, caret ^ in Verilog)</div>
+<div class="tw"><table>
+<tr><th>A</th><th>B</th><th>Y = A&oplus;B</th><th>Why?</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>Same (both 0) &rarr; 0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>Different &rarr; 1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>Different &rarr; 1</td></tr>
+<tr class="red"><td>1</td><td>1</td><td>0</td><td>Same (both 1) &rarr; 0 (yahi "exclusive" hai!)</td></tr>
+</table></div>
+<div class="callout ck">XOR ek aur important property: agar A XOR B = C, to A XOR C = B. Iska matlab: XOR apni khud ki inverse operation hai! Isliye encryption mein use hota hai &mdash; same key se encrypt aur decrypt dono!</div>
+
+<h3 class="th">&#128268; NAND, NOR, XNOR &mdash; Inverted versions</h3>
+<div class="tw"><table>
+<tr><th>Gate</th><th>Formula</th><th>Meaning</th><th>00</th><th>01</th><th>10</th><th>11</th></tr>
+<tr><td><strong>NAND</strong></td><td>~(A&middot;B)</td><td>NOT AND &mdash; AND ka ulta</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td><strong>NOR</strong></td><td>~(A+B)</td><td>NOT OR &mdash; OR ka ulta</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><strong>XNOR</strong></td><td>~(A&oplus;B)</td><td>Same = 1, Different = 0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+</table></div>
+<div class="callout cr"><strong>NAND aur NOR &mdash; Universal Gates!</strong><br>
+Sirf NAND gates use karke NOT, AND, OR &mdash; aur therefore koi bhi logic &mdash; bana sakte hain!<br>
+NOT(A) = NAND(A,A) &rarr; inputs tie karo, NAND becomes NOT!<br>
+AND(A,B) = NOT(NAND(A,B)) = 2 NANDs<br>
+OR(A,B) = NAND(NOT A, NOT B) = 3 NANDs<br>
+Real chip factories isliye NAND optimize karte hain &mdash; ek gate type bahut acchhi tarah manufacture ho sakti hai!</div>
+
+<h2 class="sh">&#128302; Boolean Laws &mdash; Simplification ke Rules</h2>
+<p>In laws se hum complex expressions simplify karte hain &rarr; <strong>kam gates = chhota chip, kam power, tez circuit.</strong></p>
+
+<div class="tw"><table>
+<tr><th>Law Name</th><th>AND Form</th><th>OR Form</th><th>Intuition</th></tr>
+<tr><td><strong>Identity</strong></td><td>A &middot; 1 = A</td><td>A + 0 = A</td><td>1 se AND ya 0 se OR &rarr; kuch nahi badla</td></tr>
+<tr><td><strong>Null/Dominance</strong></td><td>A &middot; 0 = 0</td><td>A + 1 = 1</td><td>0 se AND = always 0. 1 se OR = always 1</td></tr>
+<tr><td><strong>Idempotent</strong></td><td>A &middot; A = A</td><td>A + A = A</td><td>Khud se operate = no change</td></tr>
+<tr><td><strong>Complement</strong></td><td>A &middot; A' = 0</td><td>A + A' = 1</td><td>Opposite combine = extreme result</td></tr>
+<tr><td><strong>Double Negation</strong></td><td colspan="2">(A')' = A</td><td>Do baar NOT = original</td></tr>
+<tr><td><strong>Commutative</strong></td><td>AB = BA</td><td>A+B = B+A</td><td>Order doesn't matter (addition ki tarah)</td></tr>
+<tr><td><strong>Associative</strong></td><td>(AB)C = A(BC)</td><td>(A+B)+C = A+(B+C)</td><td>Grouping doesn't matter</td></tr>
+<tr><td><strong>Distributive</strong></td><td>A(B+C) = AB+AC</td><td>A+(BC) = (A+B)(A+C)</td><td>AND distributes over OR, and vice versa!</td></tr>
+<tr><td><strong>Absorption</strong></td><td>A(A+B) = A</td><td>A+AB = A</td><td>"A already included in AB" &mdash; redundant term drops!</td></tr>
+<tr><td><strong>Consensus</strong></td><td colspan="2">AB + A'C + BC = AB + A'C</td><td>BC is consensus term &mdash; always redundant!</td></tr>
+</table></div>
+
+<h3 class="th">De Morgan's Laws &mdash; SABSE IMPORTANT!</h3>
+<div class="formula">(A &middot; B)' = A' + B' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (A + B)' = A' &middot; B'</div>
+<div class="callout cr"><strong>Plain English mein:</strong><br>
+<strong>"NAND(A,B) = OR with inverted inputs"</strong> &mdash; (AB)' = A'+B'<br>
+<strong>"NOR(A,B) = AND with inverted inputs"</strong> &mdash; (A+B)' = A'B'<br><br>
+<strong>Trick to apply:</strong> "Break the bar, flip the sign"<br>
+1. Complement whole expression: change sign<br>
+2. Swap AND &harr; OR everywhere<br>
+3. Invert each individual variable<br><br>
+<strong>3-variable:</strong> (ABC)' = A' + B' + C' &nbsp;&nbsp;|&nbsp;&nbsp; (A+B+C)' = A'B'C'<br>
+Works for ANY number of variables!</div>
+
+<h3 class="th">Worked Example: AB + AB' ko simplify karo</h3>
+<ul class="steps">
+  <li><span class="sn">1</span>Start: Y = AB + AB'</li>
+  <li><span class="sn">2</span>Factor out A: Y = A(B + B') &nbsp;&nbsp;[Distributive Law]</li>
+  <li><span class="sn">3</span>B + B' = 1: Y = A(1) &nbsp;&nbsp;[Complement Law]</li>
+  <li><span class="sn">4</span>A&middot;1 = A: Y = A &nbsp;&nbsp;[Identity Law]</li>
+</ul>
+<div class="callout ct">Result: 4 gates (2 AND, 1 OR, 1 NOT) &rarr; 1 wire! Yahi Boolean algebra ki power hai. Real chips mein ye savings multiply hoke crores of gates tak jaate hain!</div>
+
+<h2 class="sh">&#128302; SOP, POS, Minterms aur Maxterms</h2>
+<h3 class="th">SOP (Sum of Products) &mdash; F=1 rows se banao</h3>
+<ul class="steps">
+  <li><span class="sn">1</span>Truth table mein jahan F=1 hai, un rows ko dekho</li>
+  <li><span class="sn">2</span>Har row ke liye ek AND term banao: variable=1 &rarr; as-is, variable=0 &rarr; complement</li>
+  <li><span class="sn">3</span>Sab AND terms ko OR karo</li>
+</ul>
+<div class="callout ci"><strong>Example: F(A,B,C) = &Sigma;m(1,3,5,7)</strong><br>
+m1 = A=0,B=0,C=1 &rarr; A'B'C &nbsp;&nbsp; m3 = A=0,B=1,C=1 &rarr; A'BC<br>
+m5 = A=1,B=0,C=1 &rarr; AB'C &nbsp;&nbsp; m7 = A=1,B=1,C=1 &rarr; ABC<br>
+F = A'B'C + A'BC + AB'C + ABC<br>
+Simplify: C(A'B'+A'B+AB'+AB) = C(A'+A) = C&middot;1 = C (C sirf ek hai!)</div>
+
+<h3 class="th">POS (Product of Sums) &mdash; F=0 rows se banao</h3>
+<p>F=0 wali rows mein MAXTERMS hote hain. Har maxterm mein: variable=1 &rarr; complement, variable=0 &rarr; as-is. Phir AND karo sab maxterms ko.</p>
+<div class="callout ci"><strong>Minterm vs Maxterm:</strong><br>
+Minterm m5: A=1,B=0,C=1 &rarr; Binary 101 = 5 &rarr; AB'C (SOP term, AND of all vars)<br>
+Maxterm M5: same row but POS &rarr; (A'+B+C') (OR of all vars, with flip!)</div>
+  </div>
+</div>
+
+<!-- ======= L02 ======= -->
+<div class="page" id="l02">
+  <div class="ph"><span class="tag-sm">L02</span> Logic Minimisation &mdash; K-Maps, NAND/NOR Universal Gates</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Kyun Minimise Karte Hain?</h2>
+<p><strong>Har extra gate = extra silicon area, extra power, extra heat, aur extra delay.</strong> Ek mobile phone mein 10 billion transistors hain. Agar har function 2x zyada gates use kare &rarr; phone ka battery 2x tez khatam ho, aur chip 2x costly ho. Boolean minimization directly money aur performance se linked hai!</p>
+
+<h2 class="sh">&#128302; Karnaugh Map (K-Map) &mdash; Visual Minimization Tool</h2>
+<p>K-map ek <strong>grid hai jo truth table ka visual version hai</strong>. Adjacent cells mein single bit change hoti hai (Gray code!). Adjacent 1s ko group karke, combined Boolean term result mein kam variables hote hain.</p>
+
+<div class="callout cr"><strong>&#9888;&#65039; GRAY CODE ORDER = NON-NEGOTIABLE!</strong><br>
+Rows/columns: 00, 01, 11, 10 &mdash; NOT 00, 01, 10, 11!<br>
+Reason: 01 ke baad 11 aata hai (1-bit change). Agar 10 aata to 2-bit change hoti &rarr; adjacent nahi!<br>
+Adjacent grouping valid hai SIRF jab 1 bit change ho. Yahi combining theorem ka base hai!</div>
+
+<h3 class="th">K-Map Rules &mdash; Sab Yaad Karo</h3>
+<ul class="nl">
+  <li><strong>Group sizes sirf powers of 2:</strong> 1, 2, 4, 8, 16. 3 cells = ILLEGAL!</li>
+  <li><strong>Groups rectangular hone chahiye</strong> (square ya rectangle only)</li>
+  <li><strong>Wrap-around valid hai!</strong> Left edge + right edge = neighbors. Top + bottom = neighbors. Four corners bhi ek group!</li>
+  <li><strong>Overlapping groups allowed</strong> aur zaroorat bhi padti hai</li>
+  <li><strong>Har 1 cover hona chahiye</strong> kam se kam ek group mein</li>
+  <li><strong>Don't-cares (X):</strong> Group bada karne ke liye 1 maano, baaki ignore karo</li>
+  <li><strong>Variable elimination:</strong> Agar group mein variable 0 bhi ata hai aur 1 bhi &rarr; eliminate karo. Agar constant hai &rarr; rakho term mein</li>
+</ul>
+
+<h3 class="th">3-Variable K-Map Layout</h3>
+<div class="tw"><table>
+<tr><th>AB\C</th><th>C=0</th><th>C=1</th></tr>
+<tr><td>AB=00</td><td>m0 (ABC=000)</td><td>m1 (ABC=001)</td></tr>
+<tr><td>AB=01</td><td>m2 (ABC=010)</td><td>m3 (ABC=011)</td></tr>
+<tr><td>AB=11</td><td>m6 (ABC=110)</td><td>m7 (ABC=111)</td></tr>
+<tr><td>AB=10</td><td>m4 (ABC=100)</td><td>m5 (ABC=101)</td></tr>
+</table></div>
+<div class="sticky">&#128161; Gray code order: 00, 01, <strong>11</strong>, 10. Note 11 comes BEFORE 10! That's the trick &mdash; 01&rarr;11 = 1 bit change (B), 11&rarr;10 = 1 bit change (A). If it were 00,01,10,11: 01&rarr;10 = 2 bits change = NOT adjacent logically!</div>
+
+<h3 class="th">Step-by-Step: 4-Variable K-Map Example</h3>
+<p><strong>F(A,B,C,D) = &Sigma;m(0,2,5,7,8,10,13,15)</strong></p>
+<ul class="steps">
+  <li><span class="sn">1</span>Draw 4x4 grid. Rows = AB (00,01,11,10), Cols = CD (00,01,11,10)</li>
+  <li><span class="sn">2</span>Fill 1s at minterms: 0,2,5,7,8,10,13,15</li>
+  <li><span class="sn">3</span>Find FOUR CORNERS: m0(0000), m2(0010), m8(1000), m10(1010). B=0,D=0 throughout. A and C change &rarr; eliminate A,C. Group = <strong>B'D'</strong></li>
+  <li><span class="sn">4</span>Find quad: m5(0101),m7(0111),m13(1101),m15(1111). B=1,D=1 throughout. A and C change &rarr; eliminate A,C. Group = <strong>BD</strong></li>
+  <li><span class="sn">5</span>Final: F = B'D' + BD</li>
+</ul>
+
+<h3 class="th">Prime Implicants (PI) aur Essential PI (EPI)</h3>
+<dl class="def">
+  <dt>Prime Implicant (PI)</dt><dd>Ek aisa group jo aur bada nahi ho sakta (grow nahi ho sakta while remaining rectangular and power-of-2). Ye sab groups hain jo aap khich sakte ho agar sirf maximally large groups lo.</dd>
+  <dt>Essential Prime Implicant (EPI)</dt><dd>Ek PI jo kam se kam ek aisa "1" cover karta hai jo koi aur PI cover nahi karta. EPI MUST be in every minimal SOP. EPIs pehle identify karo, phir baaki uncovered 1s ke liye cheapest PI chuno.</dd>
+  <dt>Minimal Cover</dt><dd>All EPIs + minimum additional PIs to cover ALL 1s.</dd>
+</dl>
+
+<h2 class="sh">&#128302; NAND aur NOR Universal Gates &mdash; Deep Dive</h2>
+
+<h3 class="th">NAND se NOT, AND, OR banana</h3>
+<div class="code">NOT A = NAND(A, A)     // Both inputs tied = A NAND A = ~(A&A) = ~A ✓
+AND(A,B) = NOT(NAND(A,B))      // 2 NANDs: one NAND then one NOT (= NAND with tied inputs)
+OR(A,B) = NAND(NOT A, NOT B)   // 3 NANDs: invert both, then NAND
+// Why? NAND(A', B') = ~(A'·B') = A+B by DeMorgan! (A+B)=~(~(A+B))=~(A'B')</div>
+
+<div class="callout ci"><strong>NAND-NAND = 2-level SOP implementation!</strong><br>
+F = AB + CD (standard SOP)<br>
+F = NAND(NAND(A,B), NAND(C,D))<br>
+<strong>Proof:</strong> NAND(NAND(A,B), NAND(C,D)) = ~(~(AB) &middot; ~(CD)) = AB + CD &#10003;<br>
+This is the most common real-chip implementation. Two levels of NAND = any SOP. Fast!</div>
+
+<h3 class="th">NOR se NOT, OR, AND banana</h3>
+<div class="code">NOT A = NOR(A, A)     // A NOR A = ~(A|A) = ~A ✓
+OR(A,B) = NOT(NOR(A,B))        // 2 NORs
+AND(A,B) = NOR(NOT A, NOT B)   // 3 NORs: invert both, then NOR
+// Why? NOR(A', B') = ~(A'+B') = A·B by DeMorgan! </div>
+
+<h2 class="sh">&#128302; Bubble Pushing &mdash; Gate Conversion Without Algebra</h2>
+<p>Bubble pushing = DeMorgan ka visual version. <strong>Gate ke output pe bubble lagaao &rarr; gate type flip karo aur sab inputs pe bubble lagaao.</strong></p>
+<div class="callout ck"><strong>Rules:</strong><br>
+1. NAND = AND gate with bubble on output = OR gate with bubbles on all inputs<br>
+2. NOR = OR gate with bubble on output = AND gate with bubbles on all inputs<br>
+3. Two bubbles in series CANCEL each other (double NOT = original)<br>
+<strong>Use this to:</strong> Convert SOP NAND-NAND to bubble-pushed form visually. Much easier than algebra!</div>
+  </div>
+</div>
+
+<!-- ======= L03 ======= -->
+<div class="page" id="l03">
+  <div class="ph"><span class="tag-sm">L03</span> Combinational Building Blocks &mdash; MUX, Decoder, Adder</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Kyun "Reusable Blocks"?</h2>
+<p>Koi bhi CPU ek gate at a time design nahi karta. Verified blocks banao &mdash; MUX, decoder, adder &mdash; aur phir in blocks ko compose karo. <strong>Ek verified MUX = infinite trusted copies.</strong> Jaise LEGO bricks: individual bricks simple, but mila ke complex cheez banti hai.</p>
+
+<h2 class="sh">&#128302; Multiplexer (MUX) &mdash; Data Selector</h2>
+<p>MUX = <strong>"N inputs mein se exactly 1 choose karke output pe daal do."</strong> Select lines decide karti hain kaunsa. Real-world analogy: railway switch &mdash; do tracks mein se ek choose karta hai.</p>
+
+<h3 class="th">2:1 MUX &mdash; Ek Select Line, Do Inputs</h3>
+<div class="formula">Y = S'&middot;A + S&middot;B</div>
+<div class="callout ci"><strong>Kaise kaam karta hai yeh equation?</strong><br>
+S=0: S'=1. Y = 1&middot;A + 0&middot;B = A. (A pass hua, B block hua)<br>
+S=1: S'=0. Y = 0&middot;A + 1&middot;B = B. (B pass hua, A block hua)<br>
+Exactly like a train switch selecting one track.</div>
+
+<h3 class="th">MUX as Universal Logic Function</h3>
+<p>2<sup>n</sup>:1 MUX = ANY n-variable Boolean function! Feed variables into SELECT lines, feed truth table values as DATA inputs.</p>
+<div class="callout ck"><strong>XOR(A,B) using 4:1 MUX:</strong><br>
+S1=A, S0=B (address lines)<br>
+I0 (A=0,B=0) = 0 (XOR is 0)<br>
+I1 (A=0,B=1) = 1 (XOR is 1)<br>
+I2 (A=1,B=0) = 1 (XOR is 1)<br>
+I3 (A=1,B=1) = 0 (XOR is 0)<br>
+<strong>This is EXACTLY how FPGA LUTs work!</strong> 4-input LUT = 16:1 MUX = any 4-variable function. You "program" an FPGA by choosing what values go in the LUT data inputs.</div>
+
+<h2 class="sh">&#128302; Decoder &mdash; Binary Code to One-Hot</h2>
+<p>n-bit input &rarr; 2<sup>n</sup> outputs. <strong>Exactly ONE output HIGH</strong> at any time (one-hot output). Input = which output goes HIGH.</p>
+
+<div class="callout ci"><strong>2:4 Decoder example:</strong><br>
+Input 00 &rarr; Y0=1, Y1=Y2=Y3=0<br>
+Input 01 &rarr; Y1=1, rest=0<br>
+Input 10 &rarr; Y2=1, rest=0<br>
+Input 11 &rarr; Y3=1, rest=0<br><br>
+<strong>Real use: Register file write!</strong> 5-bit write address &rarr; 5:32 decoder &rarr; exactly one of 32 register's WE (write enable) goes HIGH &rarr; only that register captures data on clock edge.</div>
+
+<h2 class="sh">&#128302; Adders &mdash; Already covered in detail in Lab 4!</h2>
+<div class="callout ct">Half Adder, Full Adder, 4-bit RCA, Overflow detection &mdash; sab Lab 4 mein with full Verilog code &amp; truth tables. Lab 4 section dekho!</div>
+  </div>
+</div>
+
+<!-- ======= L04 ======= -->
+<div class="page" id="l04">
+  <div class="ph"><span class="tag-sm">L04</span> Number Systems &amp; Two's Complement &mdash; Negatives Kaise Represent Karte Hain</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Number Systems</h2>
+<h3 class="th">Binary to Decimal</h3>
+<p>Har bit ki value = 2<sup>position</sup>. MSB se shuru:</p>
+<div class="tw"><table>
+<tr><th>Bit</th><th>2<sup>7</sup></th><th>2<sup>6</sup></th><th>2<sup>5</sup></th><th>2<sup>4</sup></th><th>2<sup>3</sup></th><th>2<sup>2</sup></th><th>2<sup>1</sup></th><th>2<sup>0</sup></th></tr>
+<tr><td>Weight</td><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+</table></div>
+<div class="callout ci"><strong>Example: 10110101&#8322; = ?</strong><br>
+1&times;128 + 0&times;64 + 1&times;32 + 1&times;16 + 0&times;8 + 1&times;4 + 0&times;2 + 1&times;1 = 128+32+16+4+1 = <strong>181</strong></div>
+
+<h3 class="th">Decimal to Binary &mdash; Divide-by-2 Method</h3>
+<p>42 ko binary mein convert karo:</p>
+<ul class="steps">
+  <li><span class="sn">1</span>42 &divide; 2 = 21 remainder <strong>0</strong></li>
+  <li><span class="sn">2</span>21 &divide; 2 = 10 remainder <strong>1</strong></li>
+  <li><span class="sn">3</span>10 &divide; 2 = 5 remainder <strong>0</strong></li>
+  <li><span class="sn">4</span>5 &divide; 2 = 2 remainder <strong>1</strong></li>
+  <li><span class="sn">5</span>2 &divide; 2 = 1 remainder <strong>0</strong></li>
+  <li><span class="sn">6</span>1 &divide; 2 = 0 remainder <strong>1</strong></li>
+  <li><span class="sn">7</span>Remainders neeche se upar padho: <strong>101010&#8322;</strong> = 42 &#10003;</li>
+</ul>
+
+<h3 class="th">Hex (Base-16) Shortcuts</h3>
+<div class="callout ci"><strong>Hex digits:</strong> 0-9, A=10, B=11, C=12, D=13, E=14, F=15<br>
+<strong>Hex to Binary:</strong> Har hex digit = exactly 4 bits. 0xB5 = 1011 0101<br>
+B=1011, 5=0101 &rarr; 10110101 &rarr; same as 181 above!<br>
+<strong>Binary to Hex:</strong> 4 bits mein group karo right se. 11011001 &rarr; 1101=D, 1001=9 &rarr; 0xD9<br>
+<strong>Why hex?</strong> 8-bit binary (10110101) hard to read. 0xB5 much more compact!</div>
+
+<h2 class="sh">&#128302; Signed Numbers &mdash; Negative Kaise Represent Karen?</h2>
+<p>Problem: bits sirf 0 ya 1 hoti hain. Negative numbers kaise?</p>
+
+<div class="tw"><table>
+<tr><th>Representation</th><th>+5 (8-bit)</th><th>&minus;5 (8-bit)</th><th>Range (8-bit)</th><th>Problem</th></tr>
+<tr><td><strong>Sign-Magnitude</strong></td><td>0000 0101</td><td>1000 0101</td><td>&minus;127 to +127</td><td>Two zeros! (+0 and &minus;0). Complex adder needed.</td></tr>
+<tr><td><strong>One's Complement</strong></td><td>0000 0101</td><td>1111 1010</td><td>&minus;127 to +127</td><td>Two zeros again! End-around carry in addition.</td></tr>
+<tr class="grn"><td><strong>Two's Complement &#10004;</strong></td><td>0000 0101</td><td>1111 1011</td><td>&minus;128 to +127</td><td>ONE zero. Regular binary adder works. WINNER!</td></tr>
+</table></div>
+
+<h3 class="th">Two's Complement &mdash; Ekdam Deep Dive</h3>
+<div class="formula">Negate karo = Flip all bits (one's complement), then add 1</div>
+
+<ul class="steps">
+  <li><span class="sn">1</span>+5 = 00000101</li>
+  <li><span class="sn">2</span>Flip all bits: 11111010 (one's complement)</li>
+  <li><span class="sn">3</span>Add 1: 11111011</li>
+  <li><span class="sn">4</span>11111011 = &minus;5 in two's complement &#10003;</li>
+</ul>
+
+<div class="callout ck"><strong>Verify: 11111011 = &minus;5?</strong><br>
+MSB has NEGATIVE weight in two's complement!<br>
+11111011 = &minus;128 + 64 + 32 + 16 + 8 + 2 + 1 = &minus;128 + 123 = <strong>&minus;5</strong> &#10003;<br><br>
+<strong>4-bit ranges:</strong><br>
+0000 = 0<br>
+0001 to 0111 = +1 to +7<br>
+1000 = &minus;8 (MSB weight is &minus;8, others positive)<br>
+1001 = &minus;8+1 = &minus;7<br>
+1111 = &minus;8+4+2+1 = &minus;1<br>
+Range: &minus;8 to +7 (n-bit: &minus;2<sup>n-1</sup> to +2<sup>n-1</sup>&minus;1)</div>
+
+<div class="callout cr"><strong>&#9888;&#65039; Exam Traps:</strong><br>
+1. 1000 (4-bit) = NOT &minus;0! It's &minus;8 (the most negative value).<br>
+2. &minus;8 ka two's complement kya hai? ~(1000)+1 = 0111+1 = 1000. &minus;8 apna khud ka complement hai! No positive +8 in 4-bit.<br>
+3. Sign extension: 4-bit &rarr; 8-bit? MSB copy karo upar: +3 (0011) &rarr; 00000011. &minus;3 (1101) &rarr; 11111101. Formula: {4{a[3]}, a}</div>
+
+<h2 class="sh">&#128302; Two's Complement Addition &mdash; Regular Binary Adder!</h2>
+<p>Yahi two's complement ka magic hai: <strong>same hardware for positive AND negative numbers.</strong></p>
+<div class="callout ct">+7 + (&minus;3) = ?<br>
++7 = 0111, &minus;3 = 1101<br>
+0111 + 1101 = 10100. Drop the carry-out &rarr; 0100 = 4 &#10003;<br><br>
++7 + (&minus;7) = ?<br>
+0111 + 1001 = 10000. Drop carry &rarr; 0000 = 0 &#10003;<br><br>
+Regular binary adder kaam karta hai signed numbers ke liye bhi! No special logic needed.</div>
+  </div>
+</div>
+
+<!-- ======= L05 ======= -->
+<div class="page" id="l05">
+  <div class="ph"><span class="tag-sm">L05</span> Sequential Circuits &mdash; Memory, Clock, Latches &amp; Flip-Flops</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Combinational vs Sequential &mdash; The Great Divide</h2>
+<div class="grid2">
+  <div class="card"><div class="card-h">Combinational &mdash; No Memory</div><div class="card-b">Output = f(current inputs ONLY). Past kuch matter nahi. Same inputs = always same output. Examples: AND gate, adder, MUX, decoder.<br><br>Test: Agar input change karo aur output change hoti hai "turant" without needing a clock &rarr; combinational!</div></div>
+  <div class="card"><div class="card-h">Sequential &mdash; Has Memory (state)</div><div class="card-b">Output = f(inputs + PAST STATE). History matters! Same inputs can give different outputs depending on what happened before. Examples: counter, register, UART, CPU itself.<br><br>Test: Agar circuit ko "remember" karna hai &rarr; sequential!</div></div>
+</div>
+
+<h2 class="sh">&#128302; Feedback = Memory Ka Secret</h2>
+<p>Circuit mein memory kaise aati hai? <strong>Output ko input mein wapas connect karo = FEEDBACK LOOP.</strong></p>
+<p>Do stable states possible hain: "Q=0, Q'=1 stable" aur "Q=1, Q'=0 stable". Yahi memory hai!</p>
+
+<h2 class="sh">&#128302; SR Latch &mdash; Pehli Memory Cell</h2>
+<p>Do NOR gates, cross-coupled. Har gate ka output doosre gate ka input feed karta hai.</p>
+<div class="tw"><table>
+<tr><th>S</th><th>R</th><th>Q (next)</th><th>Action</th><th>Why?</th></tr>
+<tr><td>0</td><td>0</td><td>Q (hold)</td><td>HOLD</td><td>Dono NOR inputs same, output maintains. Perfect memory!</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>SET</td><td>S=1 forces Q=1. Even after S goes back to 0, Q stays 1 (memory!)</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>RESET</td><td>R=1 forces Q=0. Memory again.</td></tr>
+<tr class="red"><td>1</td><td>1</td><td>???</td><td>FORBIDDEN</td><td>Both outputs go to 0. Q = Q' = 0 &rarr; breaks Q &ne; Q' invariant!</td></tr>
+</table></div>
+
+<div class="callout cr"><strong>Forbidden State (S=R=1) Physics &mdash; Step by Step:</strong><br>
+<strong>Step 1:</strong> S=1, R=1. Both NOR gates: ~(1|anything) = 0. So Q=0, Q'=0.<br>
+<strong>Step 2:</strong> Now Q=Q'=0 simultaneously &mdash; this violates the fundamental rule that they must be complements!<br>
+<strong>Step 3:</strong> Now release S=R=0. Both NOR gates see: ~(0|0) = 1. Both want to output 1 simultaneously!<br>
+<strong>Step 4:</strong> They race! Whichever NOR gate is even a picosecond faster wins. The other loses. Result is completely non-deterministic.<br>
+<strong>Step 5:</strong> In simulator: iverilog shows 'X' (unknown) &mdash; this is CORRECT and EXPECTED behavior. Not a bug!</div>
+
+<h2 class="sh">&#128302; D Latch &mdash; Forbidden State Ko Fix Karo</h2>
+<p>D latch = SR latch + enable gate + clever internal wiring: <strong>S = D&middot;E</strong> and <strong>R = D'&middot;E</strong>. Since D and D' are always opposite, S and R can NEVER both be 1. Forbidden state = impossible!</p>
+
+<div class="callout cw"><strong>Transparency Problem (D latch ka main flaw):</strong><br>
+E=1 ke dauran, koi bhi noise ya glitch jo D pe aata hai, turant Q tak pahunch jaata hai!<br>
+Example: E=HIGH, D wiggles 0&rarr;1&rarr;0&rarr;1 (noise). Q bhi usi tarah wiggle karta hai.<br>
+CPU pipelines mein ye disastrous hai. Ek 1ns glitch D pe = permanent wrong value stored!<br>
+<strong>Fix: Edge-triggered flip-flop</strong> which samples D at EXACTLY ONE INSTANT (clock edge).</div>
+
+<div class="tw"><table>
+<tr><th>Feature</th><th>D Latch</th><th>D Flip-Flop</th></tr>
+<tr><td>Control signal</td><td>Enable (level)</td><td>Clock (edge)</td></tr>
+<tr><td>When output updates</td><td>Entire HIGH window of Enable</td><td>Exactly ONE rising edge instant</td></tr>
+<tr><td>Transparent?</td><td>YES &mdash; D wiggles = Q wiggles</td><td>NO &mdash; Q frozen between edges</td></tr>
+<tr><td>Glitch propagation?</td><td>YES</td><td>NO</td></tr>
+<tr><td>Used in modern CPUs?</td><td>Rarely (SRAM cells, time borrowing)</td><td>EVERYWHERE &mdash; all registers!</td></tr>
+</table></div>
+
+<h2 class="sh">&#128302; D Flip-Flop &mdash; The CPU's Memory Cell</h2>
+<p>At rising clock edge: Q &larr; D (sampled once). Between edges: Q is frozen, regardless of what D does.</p>
+
+<h3 class="th">Master-Slave DFF &mdash; Two-Phase Airlock</h3>
+<ul class="steps">
+  <li><span class="sn">1</span><strong>CLK=HIGH:</strong> Master latch is transparent (captures D). Slave latch is locked (holds Q).</li>
+  <li><span class="sn">2</span><strong>CLK=LOW:</strong> Master locks (holds its captured value). Slave becomes transparent (passes master's value to Q).</li>
+  <li><span class="sn">3</span><strong>Never both transparent!</strong> Data can only advance one stage per half-cycle. Race impossible!</li>
+  <li><span class="sn">4</span>Result: Q changes when CLK falls (falling-edge triggered master-slave DFF)</li>
+</ul>
+<div class="callout ci">Two latches in series = "two-stage airlock". Data enters master. Data exits from slave. No way to skip from D to Q in one shot. This is why we can pipeline!</div>
+
+<h2 class="sh">&#128302; All 4 Flip-Flop Types</h2>
+<div class="tw"><table>
+<tr><th>Type</th><th>Inputs</th><th>Char. Equation</th><th>Primary Use</th><th>Special</th></tr>
+<tr><td><strong>SR</strong></td><td>S, R</td><td>Q+ = S + R'Q &nbsp;(if SR'=invalid)</td><td>Basic memory, latches</td><td>S=R=1 = forbidden!</td></tr>
+<tr><td><strong>D</strong></td><td>D</td><td>Q+ = D</td><td>Registers, pipelines, state FFs. THE DEFAULT.</td><td>Simplest, no forbidden state</td></tr>
+<tr><td><strong>JK</strong></td><td>J, K</td><td>Q+ = JQ' + K'Q</td><td>Universal &mdash; can do SR, D, T</td><td>J=K=1 &rarr; TOGGLE! No forbidden.</td></tr>
+<tr><td><strong>T</strong></td><td>T</td><td>Q+ = T &oplus; Q</td><td>Counters (T=1 toggles every clock)</td><td>Built from JK (J=K=T) or D (D=T&oplus;Q)</td></tr>
+</table></div>
+
+<div class="callout ck"><strong>JK FF &mdash; Forbidden State Fix:</strong><br>
+J=K=1 mein SR latch k S=R=1 (forbidden) tha. JK ne ise TOGGLE mein convert kiya!<br>
+When J=K=1: Q+ = Q' (flip). No more forbidden state.<br>
+Har aur behavior same: J=1,K=0 &rarr; SET. J=0,K=1 &rarr; RESET. J=K=0 &rarr; HOLD.<br>
+<strong>D from JK:</strong> J=D, K=D'. <strong>T from JK:</strong> J=K=T.</div>
+
+<h2 class="sh">&#128302; Setup Time, Hold Time, Metastability</h2>
+<p>Flip-flop ek snapshot leta hai clock edge pe. Usi snapshot ke around D stable honi chahiye, warna blurry photo!</p>
+<dl class="def">
+  <dt>t_su (Setup Time)</dt><dd>D must be stable at LEAST t_su BEFORE the clock edge. Like stopping motion BEFORE the shutter clicks. Violate &rarr; FF captures wrong value or goes metastable.</dd>
+  <dt>t_h (Hold Time)</dt><dd>D must be stable for at LEAST t_h AFTER the clock edge. Like holding still AFTER the shutter. Violate &rarr; same problem.</dd>
+  <dt>t_cq (Clock-to-Q)</dt><dd>Time from clock edge to Q being valid. After clock edge, Q takes t_cq time to settle. Max frequency limited by: f_max = 1/(t_cq + t_logic + t_su)</dd>
+  <dt>Metastability</dt><dd>If D changes in the setup/hold window, FF enters an undefined state &mdash; output somewhere between 0 and 1, like a coin balanced on its edge. It WILL resolve eventually (to 0 or 1) but WHEN and to WHAT is unpredictable. This is why CDC synchronizers are needed!</dd>
+</dl>
+<div class="callout cr"><strong>Clock Domain Crossing (CDC):</strong><br>
+Signal from 100MHz clock domain &rarr; sampled by 133MHz domain FF.<br>
+No guaranteed phase relationship &rarr; D might change exactly AT the clock edge &rarr; metastability!<br>
+<strong>Fix:</strong> 2-stage synchronizer &mdash; two DFFs in series on the destination clock. After 2 stages, probability of unresolved metastability in 1 clock cycle = astronomically small. MTBF = millions of years!</div>
+  </div>
+</div>
+
+<!-- ======= L06 ======= -->
+<div class="page" id="l06">
+  <div class="ph"><span class="tag-sm">L06</span> Registers, Shift Registers, Counters &amp; FSM Intro</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Register &mdash; N Flip-Flops in Parallel</h2>
+<p>N D flip-flops, sab ek hi clock share karte hain. N bits store karta hai. All N bits update SIMULTANEOUSLY on same clock edge = <strong>atomic update</strong>.</p>
+
+<div class="callout ci"><strong>CPU register kya hai?</strong><br>
+RISC-V x0&ndash;x31: 32 registers, each 32-bit = 32 &times; 32 = 1024 DFFs sharing one clock!<br>
+Fastest memory (register &gt; cache &gt; RAM &gt; disk).<br>
+Right next to the ALU &mdash; zero latency for computations.<br>
+PC (Program Counter) = 1 register that holds current instruction address.<br>
+IR (Instruction Register) = holds currently executing instruction.</div>
+
+<h3 class="th">Load Enable &mdash; Why Registers Need It</h3>
+<p>Plain DFF grabs D on EVERY clock edge. But register should hold value for many cycles, update only when told. Solution: 2:1 MUX per bit at D input.</p>
+<div class="callout ck">LOAD=1: new_data &rarr; MUX output &rarr; D &rarr; FF captures new value<br>
+LOAD=0: Q_current &rarr; MUX output &rarr; D &rarr; FF re-captures same value (HOLD)</div>
+
+<h2 class="sh">&#128302; Shift Registers &mdash; Bit Conveyor Belt</h2>
+<p>FFs chain karo: one FF's Q = next FF's D. Clock edge pe, har bit ek position aage shift hoti hai.</p>
+
+<div class="tw"><table>
+<tr><th>Type</th><th>Input Mode</th><th>Output Mode</th><th>Key Application</th><th>Direction</th></tr>
+<tr><td>SISO</td><td>Serial (1 bit)</td><td>Serial (1 bit)</td><td>Delay line, pipeline buffer</td><td>Data waits N clocks</td></tr>
+<tr><td>SIPO</td><td>Serial (1 bit)</td><td>Parallel (all)</td><td>UART Receiver, SPI</td><td>Build up parallel word</td></tr>
+<tr><td>PISO</td><td>Parallel (all)</td><td>Serial (1 bit)</td><td>UART Transmitter, SPI</td><td>Break down parallel word</td></tr>
+<tr><td>PIPO</td><td>Parallel (all)</td><td>Parallel (all)</td><td>Normal register!</td><td>Load all, read all</td></tr>
+</table></div>
+
+<div class="callout ci"><strong>UART (Serial Communication) deep dive:</strong><br>
+UART = Universal Asynchronous Receiver/Transmitter. Baud rate = bits per second.<br>
+<strong>Transmitter (PISO):</strong> CPU gives 8-bit byte (parallel). PISO loads all 8 bits, then shifts out 1 bit per clock = serial data on TX wire.<br>
+<strong>Receiver (SIPO):</strong> Incoming serial bits arrive at RX wire. SIPO shifts in 1 bit per clock. After 8 clocks, all 8 bits assembled &rarr; CPU reads 8-bit parallel output.<br>
+Same for SPI (3 wires: MOSI, MISO, CLK) and I2C. Shift registers everywhere!</div>
+
+<div class="callout ck"><strong>Shift = Multiply/Divide:</strong><br>
+Binary number left shift by 1 = multiply by 2! 0011(3) &rarr; 0110(6)<br>
+Binary right shift by 1 = divide by 2! 1100(12) &rarr; 0110(6)<br>
+This is how CPUs do fast multiply/divide by powers of 2 with no adder &mdash; just shift!</div>
+
+<h2 class="sh">&#128302; Counters</h2>
+<h3 class="th">Ripple Counter (Asynchronous) &mdash; DON'T USE</h3>
+<p>Bit-0 FF toggling every clock. Bit-1 FF clocked by Bit-0's output. Bit-2 clocked by Bit-1. Etc.</p>
+<div class="callout cw"><strong>Problems with Ripple:</strong><br>
+1. Delay = N &times; t_FF. 12-bit ripple @0.6ns/FF = 7.2ns delay &rarr; only 139MHz max!<br>
+2. GLITCHY! 3-bit going 011(3) &rarr; 100(4): bit-0 flips first(0), then bit-1(0), then bit-2(1). Briefly: 011&rarr;010&rarr;000&rarr;100. Temporary 0 appears! Any decoder watching sees false 0 output!</div>
+
+<h3 class="th">Synchronous Counter &mdash; ALWAYS USE THIS</h3>
+<p>All FFs share same clock. Next-state logic computed in PARALLEL. All FFs update simultaneously.</p>
+<div class="callout ct"><strong>Synchronous counter advantages:</strong><br>
+1. No glitches &mdash; all bits change together<br>
+2. Constant delay regardless of N (no ripple!)<br>
+3. Clean transitions for decoders, comparators<br>
+4. TC (Terminal Count) = &amp;q (reduction AND). Pulses once when counter reaches max value. Use to cascade counters!</div>
+
+<h2 class="sh">&#128302; LFSR &mdash; Linear Feedback Shift Register</h2>
+<p>Shift register + XOR feedback from specific taps &rarr; generates pseudo-random bit stream.</p>
+<ul class="nl">
+  <li><strong>Maximal length:</strong> n-bit LFSR visits 2<sup>n</sup>&minus;1 unique non-zero states before repeating</li>
+  <li><strong>All-zeros stuck forever:</strong> XOR of zeros = 0. Initial state must NOT be 0!</li>
+  <li><strong>Applications:</strong> CRC (error detection), pseudo-random number generation, test pattern generation, spread-spectrum comms</li>
+</ul>
+
+<h2 class="sh">&#128302; FSM Introduction</h2>
+<p>FSM = <strong>Finite State Machine</strong>. Any circuit ki general blueprint. States + transitions + outputs.</p>
+<div class="callout ci"><strong>5-Tuple Definition: (S, I, O, &delta;, &lambda;)</strong><br>
+S = set of states (finite!)<br>
+I = input alphabet<br>
+O = output alphabet<br>
+&delta; = state transition function: &delta;(state, input) &rarr; next_state<br>
+&lambda; = output function: Moore &rarr; &lambda;(state), Mealy &rarr; &lambda;(state, input)<br><br>
+<strong>Registers = special FSM</strong> with trivial state (just stored value)<br>
+<strong>Counters = special FSM</strong> that loops through a sequence<br>
+<strong>CPU itself = FSM</strong> (instruction cycle: fetch, decode, execute, writeback)</div>
+  </div>
+</div>
+
+<!-- ======= L07 ======= -->
+<div class="page" id="l07">
+  <div class="ph"><span class="tag-sm">L07</span> Register Files &amp; Complete FSM Design</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Register File &mdash; CPU ka "Workspace"</h2>
+<p>Register file = CPU ke andar multiple registers ka collection with efficient read/write mechanism.</p>
+
+<div class="callout ci"><strong>RISC-V Register File:</strong><br>
+32 registers (x0 to x31), each 32-bit wide<br>
+= 32 &times; 32 = 1024 DFFs sharing one clock<br>
+2 READ ports (DUAL read &mdash; both async!)<br>
+1 WRITE port (synchronous)<br>
+x0 = hardwired zero (writes ignored, reads always 0)</div>
+
+<h3 class="th">READ Operation &mdash; Asynchronous (NO CLOCK!)</h3>
+<p>Why async? Speed! In one clock cycle, CPU needs to: read 2 operands &rarr; ALU computes &rarr; write result. Reads must be instant (combinational) or there won't be time for ALU.</p>
+<div class="callout cr"><strong>MOST ASKED EXAM QUESTION: Register file reads are ASYNCHRONOUS!</strong><br>
+Read address (5-bit) &rarr; 32:1 MUX (with all 32 register outputs as data inputs) &rarr; output<br>
+Two independent MUXes = two simultaneous reads in same cycle<br>
+Output appears INSTANTLY when address changes (combinational)<br>
+No clock edge needed for reads &mdash; this is fundamental!</div>
+
+<h3 class="th">WRITE Operation &mdash; Synchronous (NEEDS CLOCK)</h3>
+<ul class="steps">
+  <li><span class="sn">1</span>Write address (5-bit) &rarr; 5-to-32 decoder</li>
+  <li><span class="sn">2</span>Decoder output: one of 32 WE (write enable) lines goes HIGH</li>
+  <li><span class="sn">3</span>On posedge clk: only that register (with WE=1) captures write_data</li>
+  <li><span class="sn">4</span>All other 31 registers: WE=0 &rarr; HOLD their values</li>
+</ul>
+
+<h3 class="th">x0 Hardwired Zero &mdash; Why?</h3>
+<div class="callout ck"><strong>RISC-V mein x0 hamesha 0 kyu rahta hai?</strong><br>
+1. <strong>No-op (NOP) easy:</strong> ADD x0, x0, x0 = literally does nothing!<br>
+2. <strong>Comparison:</strong> BEQ x1, x0, label &rarr; branch if x1==0. Constant 0 always needed for comparison.<br>
+3. <strong>Move:</strong> ADD x2, x1, x0 &rarr; x2 = x1 + 0 = x1. Register copy!<br>
+4. <strong>Load immediate:</strong> ADDI x1, x0, 5 &rarr; x1 = 0 + 5 = 5. Load constant!<br>
+Writes to x0: hardware SILENTLY IGNORES them. Reads from x0: always return 0.</div>
+
+<h2 class="sh">&#128302; Moore vs Mealy FSM &mdash; Full Comparison</h2>
+<div class="tw"><table>
+<tr><th>Feature</th><th>Moore Machine</th><th>Mealy Machine</th></tr>
+<tr><td>Output depends on</td><td>Current STATE only</td><td>State + Current INPUT</td></tr>
+<tr><td>Where output written</td><td>INSIDE the state circle</td><td>ON the transition arrow</td></tr>
+<tr><td>Output changes when</td><td>State changes (clock edge)</td><td>Input changes (immediate!)</td></tr>
+<tr><td>Glitchy?</td><td>NO &mdash; output stable between edges</td><td>YES &mdash; can glitch when input glitches</td></tr>
+<tr><td>Number of states</td><td>More (separate state for each output)</td><td>Fewer (output on edges)</td></tr>
+<tr><td>Response speed</td><td>1 cycle delay (output after state)</td><td>Same cycle (combinational)</td></tr>
+<tr><td>Design preference</td><td>Safer, easier to verify</td><td>Faster response, fewer states</td></tr>
+</table></div>
+
+<h2 class="sh">&#128302; 1011 Sequence Detector &mdash; Full Moore FSM Design</h2>
+<h3 class="th">Problem: Detect "1011" in a serial bit stream. Output 1 when detected. Handle overlaps!</h3>
+
+<ul class="steps">
+  <li><span class="sn">1</span><strong>Understand:</strong> Serial input 'x'. Output 'z'. Detect pattern "1011". Overlapping allowed (e.g., "10110 11" &mdash; the second "11" might start at overlap).</li>
+  <li><span class="sn">2</span><strong>Identify States:</strong> How much of the pattern have we matched so far?<br>S0=nothing matched, S1=matched "1", S2=matched "10", S3=matched "101", S4=matched "1011" (OUTPUT!)</li>
+  <li><span class="sn">3</span><strong>Draw Transitions:</strong> For each state, what happens when x=0 and when x=1?</li>
+</ul>
+
+<div class="tw"><table>
+<tr><th>State</th><th>Meaning</th><th>x=0 &rarr; Next</th><th>x=1 &rarr; Next</th><th>Output Z</th><th>Why the transition?</th></tr>
+<tr><td>S0</td><td>Idle/Reset</td><td>S0</td><td>S1</td><td>0</td><td>x=1 starts our pattern; x=0 can't start 1011</td></tr>
+<tr><td>S1</td><td>Got "1"</td><td>S2</td><td>S1</td><td>0</td><td>x=0 &rarr; "10" so far; x=1 &rarr; "11" = still have 1 (last 1 valid)</td></tr>
+<tr><td>S2</td><td>Got "10"</td><td>S0</td><td>S3</td><td>0</td><td>x=1 &rarr; "101"; x=0 &rarr; "100" = no prefix of 1011 &rarr; back to S0</td></tr>
+<tr><td>S3</td><td>Got "101"</td><td>S2</td><td>S4</td><td>0</td><td>x=1 &rarr; "1011" done!; x=0 &rarr; "1010" = "10" is prefix &rarr; S2</td></tr>
+<tr class="grn"><td>S4</td><td>Got "1011" &#10003;</td><td>S2</td><td>S1</td><td>1</td><td>x=0 &rarr; "10110" = "10" so far; x=1 &rarr; "10111" = last "1" could start new</td></tr>
+</table></div>
+
+<div class="callout cr"><strong>TRICKY S4 Transitions &mdash; EXAM FAVOURITE!</strong><br>
+<strong>S4 + x=1 &rarr; S1 (NOT S0!):</strong><br>
+After "1011" (matched!), if next bit is 1, we now have "10111". The LAST '1' of this could be the START of a new "1011". So we go to S1 (seen one '1' so far). If we went to S0, we'd miss overlapping patterns!<br><br>
+<strong>S4 + x=0 &rarr; S2 (NOT S0!):</strong><br>
+After "1011", if x=0, we have "10110". Now look at the TAIL: "10" &mdash; this IS a prefix of "1011"! So we go to S2 (seen "10"). Going to S0 would waste the match we've already made!<br><br>
+Test: Input "101110110 11" &rarr; should detect TWO "1011" patterns. Wrong S4 transitions = misses second match!</div>
+
+<h3 class="th">State Encoding &mdash; Kaunsa Best?</h3>
+<dl class="def">
+  <dt>Binary Encoding</dt><dd>5 states &rarr; &lceil;log&#8322;5&rceil; = 3 FFs. S0=000, S1=001, S2=010, S3=011, S4=100. Compact but decode logic complex. Unused states (101,110,111) need safe handling (go to reset state).</dd>
+  <dt>One-Hot Encoding</dt><dd>5 states &rarr; 5 FFs. S0=10000, S1=01000, S2=00100, S3=00010, S4=00001. Exactly ONE FF=1. Next state logic very simple (each state = just check current FF). FPGAs prefer this (FFs are abundant).</dd>
+  <dt>Gray Encoding</dt><dd>Adjacent states differ by 1 bit. Fewer power-hungry transitions. Used in counters to minimize switching power.</dd>
+</dl>
+  </div>
+</div>
+
+
+<!-- ======= LAB 1 ======= -->
+<div class="page" id="lab1">
+  <div class="ph"><span class="tag-sm">LAB 1</span> Verilog Setup &amp; Basic Gates &mdash; Where It All Begins</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Verilog Kya Hai? (Basics from Scratch)</h2>
+<p><strong>Verilog = Hardware Description Language (HDL).</strong> Ye ek programming language nahi hai &mdash; ye ek <span class="hy">wiring diagram ka textual representation</span> hai. Jab tu Verilog likhta hai, tu CPU ke andar wires aur gates describe kar raha hota hai, not steps.</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-h">Software (C/Python) &mdash; Sequential</div>
+    <div class="card-b">Instructions ek-ek karke execute hoti hain. Line 2 execute hone ke liye Line 1 khatam honi chahiye. <em>CPU ek kaam ek time pe karta hai.</em></div>
+  </div>
+  <div class="card">
+    <div class="card-h">Hardware (Verilog) &mdash; Concurrent</div>
+    <div class="card-b">Saare gates SIMULTANEOUSLY switch karte hain. 10 billion transistors AAEK SAATH switch karte hain. <em>No queues, no waiting!</em></div>
+  </div>
+</div>
+<div class="callout ci"><strong>Simulation vs. Synthesis:</strong><br>
+&#9654; <strong>Simulation</strong> (iverilog/ModelSim): Tumhara Verilog ek normal CPU pe run hota hai aur circuit behavior model karta hai. Waveform (.vcd) generate hoti hai. Kuch physical nahi banta &mdash; ye sab Lab 1-7 yahi karta hai.<br>
+&#9654; <strong>Synthesis</strong> (Synopsys/Cadence): Same Verilog padh ke real gate-level netlist generate karta hai jo silicon pe fabricate hoti hai. Real chips aise bante hain!</div>
+<div class="callout cw"><strong>&#9888;&#65039; Sabse Important Mental Shift:</strong> Verilog ko C ki tarah mat padho! <code>assign y = a &amp; b;</code> ye ek line nahi hai jo "execute" hoti hai &mdash; ye ek WIRE hai jo a aur b ke beech ek AND gate se permanently connected hai. Jab a ya b change hote hain, y TURANT change hoti hai &mdash; koi delay nahi, koi sequence nahi.</div>
+
+<h2 class="sh">&#128302; Verilog Language Fundamentals</h2>
+<h3 class="th">Module &mdash; Hardware ka Building Block</h3>
+<p>Verilog mein har circuit ek <strong>module</strong> hai. Module = black box with inputs and outputs. Andar wires aur logic. Bahar sirf ports.</p>
+<div class="code"><span class="kw">module</span> <span class="fn">module_name</span> (
+  <span class="kw">input</span>  <span class="ty">wire</span>       <span class="sig">single_bit_in</span>,   <span class="cm">// 1-bit input</span>
+  <span class="kw">input</span>  <span class="ty">wire</span> [<span class="num">7</span>:<span class="num">0</span>] <span class="sig">eight_bit_bus</span>,   <span class="cm">// 8-bit input bus [MSB:LSB]</span>
+  <span class="kw">output</span> <span class="ty">wire</span>       <span class="sig">comb_output</span>,     <span class="cm">// Use WIRE for assign outputs</span>
+  <span class="kw">output</span> <span class="ty">reg</span>        <span class="sig">seq_output</span>       <span class="cm">// Use REG for always outputs</span>
+);
+  <span class="cm">// Internal signals (wires between submodules)</span>
+  <span class="ty">wire</span> <span class="sig">internal_signal</span>;
+
+  <span class="cm">// Continuous assignment (combinational logic)</span>
+  <span class="kw">assign</span> <span class="sig">comb_output</span> = <span class="sig">single_bit_in</span> &amp; <span class="sig">eight_bit_bus</span>[<span class="num">0</span>];
+
+  <span class="cm">// Procedural block (sequential logic)</span>
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="sig">seq_output</span> &lt;= <span class="sig">single_bit_in</span>;
+
+<span class="kw">endmodule</span></div>
+
+<h3 class="th">wire vs reg &mdash; Most Confused Concept!</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-h">wire &mdash; A Physical Wire</div>
+    <div class="card-b">Net hai &mdash; gate output ko input se connect karta hai. Hamesha driven hona chahiye (by assign or module output). <strong>Use wire for: module outputs connected via assign, module instance connections.</strong> Kabhi bhi inside always block assign mat karo wire ko!</div>
+  </div>
+  <div class="card">
+    <div class="card-h">reg &mdash; A Variable (NOT a register!)</div>
+    <div class="card-b">Procedural variable &mdash; sirf always blocks ke andar assign hoti hai. Naam misleading hai &mdash; ye real register nahi banta unless posedge clk block mein ho. <strong>Use reg for: always block outputs.</strong></div>
+  </div>
+</div>
+<div class="callout cr"><strong>Rule: always @(*) mein output &rarr; reg. assign mein output &rarr; wire. Simple!</strong><br>
+Violation pe synthesis tool error dega (ya worse, wrong circuit silently banayega).</div>
+
+<h3 class="th">assign vs always &mdash; Two Worlds</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-h">assign (Continuous Assignment)</div>
+    <div class="card-b"><strong>Ye ek wire hai, statement nahi!</strong> Jab bhi RHS change ho, LHS turant update. No clock needed. For combinational logic only. LHS must be wire.<br><em>Example: assign y = a ^ b;</em></div>
+  </div>
+  <div class="card">
+    <div class="card-h">always @(*) (Combinational Block)</div>
+    <div class="card-b">Jab bhi koi bhi signal inside change ho, re-evaluate. (*) means "auto-detect all inputs." Complex combinational logic ke liye (case statements etc). LHS must be reg.<br><em>Example: always @(*) begin y = sel ? b : a; end</em></div>
+  </div>
+</div>
+<div class="code"><span class="cm">// always @(posedge clk) &mdash; Sequential (flip-flop)</span>
+<span class="cm">// Sirf rising clock edge pe evaluate. Register/FF banana ho to ye use karo.</span>
+<span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="sig">q</span> &lt;= <span class="sig">d</span>;  <span class="cm">// &lt;= = nonblocking assignment</span>
+
+<span class="cm">// always @(*) &mdash; Combinational</span>
+<span class="cm">// Koi bhi input change ho &mdash; re-run. assign ki tarah.</span>
+<span class="kw">always</span> @(*) <span class="sig">y</span> = <span class="sig">a</span> &amp; <span class="sig">b</span>;  <span class="cm">// = blocking assignment ok here</span></div>
+
+<h3 class="th">Blocking (=) vs Nonblocking (&lt;=)</h3>
+<div class="callout ck"><strong>&#127891; EXAM FAVOURITE:</strong><br>
+<strong>= (Blocking):</strong> Execute NOW. Next statement waits. Use in combinational always @(*).<br>
+<strong>&lt;= (Nonblocking):</strong> Schedule update end of time step. All RHS evaluated first THEN all LHS update. Use ALWAYS in posedge always blocks!<br><br>
+<strong>Why &lt;= in sequential?</strong> Agar posedge mein = use karo aur do flops ek dusre ko chain karo, data ek cycle mein skip ho sakta hai (race condition). &lt;= ensures all flops capture same-cycle values correctly.</div>
+
+<h3 class="th">Verilog Operators Quick Reference</h3>
+<div class="tw"><table>
+<tr><th>Op</th><th>Symbol</th><th>Example</th><th>Use</th><th>Result</th></tr>
+<tr><td>AND</td><td>&amp;</td><td>a &amp; b</td><td>AND gate</td><td>1 if both 1</td></tr>
+<tr><td>OR</td><td>|</td><td>a | b</td><td>OR gate</td><td>1 if any 1</td></tr>
+<tr><td>NOT</td><td>~</td><td>~a</td><td>Inverter</td><td>Flip</td></tr>
+<tr><td>XOR</td><td>^</td><td>a ^ b</td><td>XOR gate</td><td>Different=1</td></tr>
+<tr><td>XNOR</td><td>~^</td><td>a ~^ b</td><td>XNOR gate</td><td>Same=1</td></tr>
+<tr><td>NAND</td><td>~( &amp; )</td><td>~(a&amp;b)</td><td>NAND gate</td><td>NOT AND</td></tr>
+<tr><td>NOR</td><td>~( | )</td><td>~(a|b)</td><td>NOR gate</td><td>NOT OR</td></tr>
+<tr><td>Ternary</td><td>?:</td><td>s?b:a</td><td>2:1 MUX</td><td>s=1&rarr;b, s=0&rarr;a</td></tr>
+<tr><td>Concat</td><td>{}</td><td>{a,b,c}</td><td>Bit join</td><td>MSB first</td></tr>
+<tr><td>Replicate</td><td>{n{x}}</td><td>{4{a[3]}}</td><td>Sign extend</td><td>4 copies</td></tr>
+<tr><td>Red-AND</td><td>&amp;x</td><td>&amp;q</td><td>All bits 1?</td><td>1 if all bits=1</td></tr>
+<tr><td>Red-OR</td><td>|x</td><td>|q</td><td>Any bit 1?</td><td>1 if any bit=1</td></tr>
+</table></div>
+
+<h2 class="sh">&#128302; All 7 Gates in Verilog</h2>
+<div class="code"><span class="cm">// AND Gate</span>
+<span class="kw">module</span> <span class="fn">and_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> &amp; <span class="sig">b</span>;   <span class="cm">// 0,0,0,1</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// OR Gate</span>
+<span class="kw">module</span> <span class="fn">or_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> | <span class="sig">b</span>;   <span class="cm">// 0,1,1,1</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// NOT Gate</span>
+<span class="kw">module</span> <span class="fn">not_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~<span class="sig">a</span>;       <span class="cm">// 1,0</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// XOR Gate</span>
+<span class="kw">module</span> <span class="fn">xor_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> ^ <span class="sig">b</span>;   <span class="cm">// 0,1,1,0 (different=1)</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// NAND Gate</span>
+<span class="kw">module</span> <span class="fn">nand_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~(<span class="sig">a</span> &amp; <span class="sig">b</span>); <span class="cm">// 1,1,1,0</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// NOR Gate</span>
+<span class="kw">module</span> <span class="fn">nor_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~(<span class="sig">a</span> | <span class="sig">b</span>); <span class="cm">// 1,0,0,0</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// XNOR Gate</span>
+<span class="kw">module</span> <span class="fn">xnor_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~(<span class="sig">a</span> ^ <span class="sig">b</span>); <span class="cm">// 1,0,0,1 (same=1)</span>
+<span class="kw">endmodule</span></div>
+
+<h3 class="th">Testbench Template (Self-Checking)</h3>
+<p>Testbench ek special module hai jiska <strong>koi port nahi hota</strong> &mdash; ye sirf simulation ke liye hai. Andar DUT (Design Under Test) instantiate hoti hai aur stimulus diya jaata hai.</p>
+<div class="code"><span class="kw">module</span> <span class="fn">and_gate_tb</span>;  <span class="cm">// No ports!</span>
+  <span class="ty">reg</span>  <span class="sig">a</span>, <span class="sig">b</span>;         <span class="cm">// reg = we drive these</span>
+  <span class="ty">wire</span> <span class="sig">y</span>;            <span class="cm">// wire = DUT drives this</span>
+
+  <span class="cm">// Instantiate DUT</span>
+  <span class="fn">and_gate</span> dut(.<span class="sig">a</span>(<span class="sig">a</span>), .<span class="sig">b</span>(<span class="sig">b</span>), .<span class="sig">y</span>(<span class="sig">y</span>));
+
+  <span class="kw">initial</span> <span class="kw">begin</span>
+    $dumpfile(<span class="str">"and_tb.vcd"</span>); $dumpvars(<span class="num">0</span>, and_gate_tb);
+    <span class="cm">// Apply all 4 input combinations</span>
+    <span class="sig">a</span>=<span class="num">0</span>; <span class="sig">b</span>=<span class="num">0</span>; #<span class="num">10</span>; $display(<span class="str">"%s a=%b b=%b y=%b"</span>, (<span class="sig">y</span>===<span class="num">0</span>)?<span class="str">"PASS"</span>:<span class="str">"FAIL"</span>, <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">y</span>);
+    <span class="sig">a</span>=<span class="num">0</span>; <span class="sig">b</span>=<span class="num">1</span>; #<span class="num">10</span>; $display(<span class="str">"%s a=%b b=%b y=%b"</span>, (<span class="sig">y</span>===<span class="num">0</span>)?<span class="str">"PASS"</span>:<span class="str">"FAIL"</span>, <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">y</span>);
+    <span class="sig">a</span>=<span class="num">1</span>; <span class="sig">b</span>=<span class="num">0</span>; #<span class="num">10</span>; $display(<span class="str">"%s a=%b b=%b y=%b"</span>, (<span class="sig">y</span>===<span class="num">0</span>)?<span class="str">"PASS"</span>:<span class="str">"FAIL"</span>, <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">y</span>);
+    <span class="sig">a</span>=<span class="num">1</span>; <span class="sig">b</span>=<span class="num">1</span>; #<span class="num">10</span>; $display(<span class="str">"%s a=%b b=%b y=%b"</span>, (<span class="sig">y</span>===<span class="num">1</span>)?<span class="str">"PASS"</span>:<span class="str">"FAIL"</span>, <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">y</span>);
+    $finish;
+  <span class="kw">end</span>
+<span class="kw">endmodule</span></div>
+<div class="callout ci"><strong>Run Commands:</strong><br>
+<code>iverilog -o sim.vvp and_gate.v and_gate_tb.v</code> &mdash; Compile<br>
+<code>vvp sim.vvp</code> &mdash; Run simulation<br>
+<code>gtkwave and_tb.vcd</code> &mdash; View waveforms</div>
+<div class="callout cw"><strong>Common Errors &amp; Fixes (Lab 1):</strong><br>
+&#10005; Forgot $dumpfile + $dumpvars &rarr; Empty VCD file<br>
+&#10005; wire where reg needed (in always) &rarr; Compile error<br>
+&#10005; No #delay between stimuli &rarr; All happen at t=0, waveform useless<br>
+&#10005; Wrong port connection order &rarr; Use named ports .portname(wire) always!</div>
+  </div>
+</div>
+
+<!-- ======= LAB 2 ======= -->
+<div class="page" id="lab2">
+  <div class="ph"><span class="tag-sm">LAB 2</span> Logic Minimisation &amp; Universal Gates &mdash; 35 Worked Questions</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Section A: Warm-up &amp; Fundamentals (Q1&ndash;Q7)</h2>
+<div class="callout ck"><strong>Strategy &mdash; Canonical Forms:</strong><br>
+&bull; SOP: F=1 wali rows &rarr; 1=as-is, 0=complemented variable<br>
+&bull; POS: F=0 wali rows &rarr; 1=complemented, 0=as-is variable<br>
+&bull; Minterm number = binary value of input combo (MSB left)<br>
+&bull; Maxterm = same index as minterm at same row</div>
+
+<div class="qc"><div class="qn">Q1 &mdash; Evaluate F = AB + AB' + A'B for A=1, B=0</div>
+<div class="qa">&#10004;&#65039; F = 1</div>
+<div class="qe"><strong>Step 1:</strong> A=1,B=0 &rarr; B'=1<br>
+<strong>Step 2:</strong> AB = 1&middot;0 = 0 &nbsp;|&nbsp; AB' = 1&middot;1 = 1 &nbsp;|&nbsp; A'B = 0&middot;0 = 0<br>
+F = 0+1+0 = <strong>1</strong></div></div>
+
+<div class="qc"><div class="qn">Q2 &mdash; Canonical SOP from truth table: F(A,B,C) = &Sigma;m(1,2,4,7)</div>
+<div class="qa">&#10004;&#65039; F = A'B'C + A'BC' + AB'C' + ABC</div>
+<div class="qe">Rows where F=1: (0,0,1)=m1, (0,1,0)=m2, (1,0,0)=m4, (1,1,1)=m7<br>
+m1: A=0&rarr;A', B=0&rarr;B', C=1&rarr;C &rarr; A'B'C<br>
+m2: A=0&rarr;A', B=1&rarr;B, C=0&rarr;C' &rarr; A'BC'<br>
+m4: A=1&rarr;A, B=0&rarr;B', C=0&rarr;C' &rarr; AB'C'<br>
+m7: A=1&rarr;A, B=1&rarr;B, C=1&rarr;C &rarr; ABC</div></div>
+
+<div class="qc"><div class="qn">Q3 &mdash; Same truth table, canonical POS</div>
+<div class="qa">&#10004;&#65039; F = (A+B+C)(A+B'+C')(A'+B+C')(A'+B'+C) = &Pi;M(0,3,5,6)</div>
+<div class="qe">F=0 rows: (0,0,0)=M0, (0,1,1)=M3, (1,0,1)=M5, (1,1,0)=M6<br>
+POS rule: 1&rarr;complement, 0&rarr;as-is in maxterm<br>
+M0=(A+B+C), M3=(A+B'+C'), M5=(A'+B+C'), M6=(A'+B'+C)</div></div>
+
+<div class="qc"><div class="qn">Q4 &mdash; Convert F = &Sigma;m(0,3,5,6) to &Pi; notation</div>
+<div class="qa">&#10004;&#65039; F = &Pi;M(1,2,4,7)</div>
+<div class="qe">Missing minterms (where F=0) = 1,2,4,7 &rarr; these are the maxterms</div></div>
+
+<div class="qc"><div class="qn">Q5 &mdash; Minterm for A=1, B=0, C=1, D=0</div>
+<div class="qa">&#10004;&#65039; m<sub>10</sub> = AB'CD'</div>
+<div class="qe">Binary 1010&#8322; = 10&#8321;&#8320; &rarr; A=1&rarr;A, B=0&rarr;B', C=1&rarr;C, D=0&rarr;D'</div></div>
+
+<div class="qc"><div class="qn">Q6 &mdash; Maxterm for A=0, B=1, C=1</div>
+<div class="qa">&#10004;&#65039; M&#8323; = (A + B' + C')</div>
+<div class="qe">011&#8322; = 3&#8321;&#8320;. Maxterm rule: 1&rarr;complement, 0&rarr;as-is in OR terms.<br>
+A=0&rarr;A (0 stays), B=1&rarr;B' (1 complements), C=1&rarr;C'</div></div>
+
+<div class="qc"><div class="qn">Q7 &mdash; F = &Sigma;m(1,2,4,7): SOP + equivalent POS</div>
+<div class="qa">&#10004;&#65039; SOP = A'B'C + A'BC' + AB'C' + ABC &nbsp;|&nbsp; POS = &Pi;M(0,3,5,6)</div>
+<div class="qe">Missing minterms = 0,3,5,6 &rarr; these are maxterms for POS</div></div>
+
+<hr class="d">
+<h2 class="sh">&#128302; Section B: Boolean Algebra &amp; Simplification (Q8&ndash;Q13)</h2>
+<div class="callout ck"><strong>Laws to Know:</strong> Identity(A+0=A, A&middot;1=A), Null(A+1=1, A&middot;0=0), Complement(A+A'=1, A&middot;A'=0), Idempotent(A+A=A), Absorption(A+AB=A), Consensus(AB+A'C+BC = AB+A'C)</div>
+
+<div class="qc"><div class="qn">Q8 &mdash; Which law: X + X&middot;Y = X?</div>
+<div class="qa">&#10004;&#65039; Absorption Law</div>
+<div class="qe">X + XY = X(1+Y) = X&middot;1 = X &nbsp;&nbsp;(1+Y = 1 by Null law)</div></div>
+
+<div class="qc"><div class="qn">Q9 &mdash; Simplify A + A'B</div>
+<div class="qa">&#10004;&#65039; F = A + B</div>
+<div class="qe">A + A'B = (A+A')(A+B) = 1&middot;(A+B) = A+B &nbsp;[Distributive: A+BC = (A+B)(A+C)]</div></div>
+
+<div class="qc"><div class="qn">Q10 &mdash; Simplify F = XY + X'Z + YZ. Is YZ necessary?</div>
+<div class="qa">&#10004;&#65039; F = XY + X'Z &nbsp;(YZ is redundant &mdash; Consensus Theorem)</div>
+<div class="qe"><strong>Consensus Theorem:</strong> AB + A'C + BC = AB + A'C (BC is consensus term &mdash; ALWAYS redundant)<br>
+Here: XY + X'Z + YZ &rarr; YZ is the consensus of XY(X) and X'Z(X'). Drop it!</div></div>
+
+<div class="qc"><div class="qn">Q11 &mdash; Prove/disprove: (A+B)(A'+C) = AC + A'B</div>
+<div class="qa">&#10004;&#65039; True! F = AC + A'B</div>
+<div class="qe">Expand LHS: AA' + AC + A'B + BC = 0 + AC + A'B + BC<br>
+BC is consensus of AC and A'B &rarr; drop it. F = AC + A'B &#10003;</div></div>
+
+<div class="qc"><div class="qn">Q12 &mdash; Remove redundancy: F = A'B'C + A'BC + AB'C + ABC + A'B</div>
+<div class="qa">&#10004;&#65039; F = C + A'B</div>
+<div class="qe">A'B'C + A'BC = A'C(B'+B) = A'C &nbsp;|&nbsp; AB'C + ABC = AC(B'+B) = AC<br>
+A'C + AC = C(A'+A) = C &nbsp;|&nbsp; Remaining A'B &nbsp;|&nbsp; F = C + A'B</div></div>
+
+<div class="qc"><div class="qn">Q13 &mdash; Complement of F = (A+B)(A'+C)</div>
+<div class="qa">&#10004;&#65039; F' = A'B' + AC'</div>
+<div class="qe">F' = [(A+B)(A'+C)]' = (A+B)' + (A'+C)' &nbsp;[DeMorgan on whole]<br>
+= A'B' + AC' &nbsp;[DeMorgan on each factor]</div></div>
+
+<hr class="d">
+<h2 class="sh">&#128302; Section C &amp; D: K-Maps (Q14&ndash;Q26)</h2>
+<div class="callout cr"><strong>K-Map Rules &mdash; MUST MEMORIZE:</strong><br>
+1. Gray code order: 00, 01, 11, 10 (NOT 00,01,10,11!)<br>
+2. Group sizes: powers of 2 only (1,2,4,8,16)<br>
+3. Groups must be rectangular<br>
+4. Wrap-around valid! (Top-bottom, left-right, corners)<br>
+5. Overlapping groups allowed and often needed<br>
+6. Every 1 must be covered<br>
+7. Don't-cares (X): treat as 1 when grouping, ignore otherwise<br>
+8. Variable CHANGES inside group &rarr; ELIMINATED from term<br>
+9. Variable CONSTANT in group &rarr; SURVIVES in term</div>
+
+<div class="qc"><div class="qn">Q14 &mdash; Why Gray code order (00-01-11-10) not binary (00-01-10-11)?</div>
+<div class="qa">&#10004;&#65039; Gray code ensures adjacent cells differ by EXACTLY 1 bit</div>
+<div class="qe">Binary order: 01 next to 10 = 2-bit difference &rarr; NOT adjacent logically!<br>
+Gray code: 01 next to 11 = 1-bit difference &#10003;, 11 next to 10 = 1-bit difference &#10003;<br>
+Adjacent grouping only valid when single bit changes &rarr; allows combining theorem: AB + AB' = A</div></div>
+
+<div class="qc"><div class="qn">Q15 &mdash; 2-var K-map for F(A,B) = &Sigma;m(0,2)</div>
+<div class="qa">&#10004;&#65039; F = B'</div>
+<div class="qe">m0=(A=0,B=0), m2=(A=1,B=0). Both have B=0, A changes &rarr; eliminate A &rarr; F = B'<br>
+Group of 2 (vertical column where B=0) &rarr; B stays 0 &rarr; term = B'</div></div>
+
+<div class="qc"><div class="qn">Q16 &mdash; 3-var K-map F(A,B,C) = &Sigma;m(0,2,3,5)</div>
+<div class="qa">&#10004;&#65039; F = A'B + A'C' + AB'C</div>
+<div class="qe">m2(010)+m3(011): A=0, B=1, C changes &rarr; A'B (group of 2)<br>
+m0(000)+m2(010): A changes, B changes? No &mdash; wrap! m0+m2 with B fixed? Let me check:<br>
+m0(000),m2(010): B changes(0,1) A same(0), C same(0) &rarr; A'C' (group of 2)<br>
+m5(101): AB'C (lone cell, must cover)<br>
+F = A'B + A'C' + AB'C</div></div>
+
+<div class="qc"><div class="qn">Q17 &mdash; Legal groups on 3-var K-map (select all)</div>
+<div class="qa">&#10004;&#65039; A (four corners) and B (2x2 block)</div>
+<div class="qe">A: Four corners = valid group of 4 (wrap-around on both axes) &#10003;<br>
+B: 2x2 block = rectangular, power-of-2 size &#10003;<br>
+C: Three adjacent = size 3, NOT power of 2 &#10007;<br>
+D: Two cells differing in 2 variables = NOT adjacent (must differ by 1 bit only) &#10007;</div></div>
+
+<div class="qc"><div class="qn">Q18 &mdash; Group of 4 covering m0,m2,m4,m6 on 3-var K-map</div>
+<div class="qa">&#10004;&#65039; F = C'</div>
+<div class="qe">m0=000, m2=010, m4=100, m6=110. C is ALWAYS 0! A and B both change &rarr; both eliminated. Only C survives as C'</div></div>
+
+<div class="qc"><div class="qn">Q19 &mdash; All 8 minterms = 1. Minimal expression?</div>
+<div class="qa">&#10004;&#65039; F = 1</div>
+<div class="qe">Entire 3-var K-map is one group of 8. All 3 variables change &rarr; all eliminated. F = 1 (tautology)</div></div>
+
+<div class="qc"><div class="qn">Q20 &mdash; F = A'C + AB: place on K-map, list minterms</div>
+<div class="qa">&#10004;&#65039; &Sigma;m(1,3,6,7)</div>
+<div class="qe">A'C: A=0,C=1 &rarr; m1(001), m3(011)<br>
+AB: A=1,B=1 &rarr; m6(110), m7(111)</div></div>
+
+<div class="qc"><div class="qn">Q21 &mdash; 4-var: F(A,B,C,D) = &Sigma;m(0,2,5,7,8,10,13,15). Watch corners!</div>
+<div class="qa">&#10004;&#65039; F = B'D' + BD</div>
+<div class="qe"><strong>Four corners</strong>: m0(0000), m2(0010), m8(1000), m10(1010) &rarr; B=0,D=0 always &rarr; <strong>B'D'</strong><br>
+<strong>Quad</strong>: m5(0101), m7(0111), m13(1101), m15(1111) &rarr; B=1,D=1 always &rarr; <strong>BD</strong><br>
+F = B'D' + BD &nbsp;[XOR of B and D... actually XNOR pattern!]</div></div>
+
+<div class="qc"><div class="qn">Q22 &mdash; Cells m0,m2,m8,m10 on 4-var K-map: one product term</div>
+<div class="qa">&#10004;&#65039; B'D'</div>
+<div class="qe">These are the four corners. B=0, D=0 throughout. A,C change &rarr; eliminated. Term = B'D'</div></div>
+
+<div class="qc"><div class="qn">Q23 &mdash; F(A,B,C) = &Sigma;m(0,1,2,5,6,7): All PIs, EPIs, minimal cover</div>
+<div class="qa">&#10004;&#65039; F = A'B' + BC' + AC</div>
+<div class="qe">PIs: A'B'(m0,m1), A'C'(m0,m2), B'C(m1,m5), BC'(m2,m6), AC(m5,m7), AB(m6,m7)<br>
+EPI check: m1 uniquely in A'B' and B'C... Find EPIs by cells covered by only 1 PI<br>
+One minimal cover: A'B' + BC' + AC &#10003;</div></div>
+
+<div class="qc"><div class="qn">Q24 &mdash; 5 PIs, 3 are essential. Minimum product terms?</div>
+<div class="qa">&#10004;&#65039; At least 3 (exactly 3 if EPIs cover all 1s)</div>
+<div class="qe">All EPIs MUST be in minimal cover. If 3 EPIs cover everything, answer = 3</div></div>
+
+<div class="qc"><div class="qn">Q25 &mdash; True/False: Overlapping groups always illegal?</div>
+<div class="qa">&#10004;&#65039; FALSE! Overlapping is LEGAL and often required for minimal cover</div>
+<div class="qe">A single 1 can belong to multiple groups. Overlapping lets each group be larger &rarr; simpler terms</div></div>
+
+<div class="qc"><div class="qn">Q26 &mdash; F has PIs P1=A'B, P2=BC', P3=AC, P4=A'C'. m0 unique in P4, m7 unique in P3</div>
+<div class="qa">&#10004;&#65039; EPIs = P4 + P3. Minimal cover: A'C' + AC + BC'</div>
+<div class="qe">P4(A'C') and P3(AC) are EPIs (must include). Remaining 1s: use P1 or P2 to cover.<br>
+One answer: A'C' + AC + BC'</div></div>
+
+<hr class="d">
+<h2 class="sh">&#128302; Section E: DeMorgan &amp; Bubble Pushing (Q27&ndash;Q30)</h2>
+<div class="callout ci"><strong>DeMorgan Rules (MOST IMPORTANT in this course!):</strong><br>
+(AB)' = A' + B' &nbsp;&nbsp;&nbsp; (A+B)' = A'&middot;B'<br>
+<strong>Trick:</strong> Complement the whole, then change AND&harr;OR<br>
+<strong>Bubble Pushing:</strong> Bubble on output = bubbles on all inputs + change gate type</div>
+
+<div class="qc"><div class="qn">Q27 &mdash; Simplify F = ((A+B)'&middot;C)' + (A&middot;B)'</div>
+<div class="qa">&#10004;&#65039; F = 1</div>
+<div class="qe">(A+B)' = A'B' (DeMorgan)<br>
+(A'B'&middot;C)' = (A'B')' + C' = (A+B) + C' = A+B+C' (DeMorgan again)<br>
+(AB)' = A'+B'<br>
+F = (A+B+C') + (A'+B') = (has A+A') = 1 (since A+A'=1 always)</div></div>
+
+<div class="qc"><div class="qn">Q28 &mdash; (A&middot;B)' + C into simplest form</div>
+<div class="qa">&#10004;&#65039; F = A' + B' + C</div>
+<div class="qe">(AB)' = A'+B' by DeMorgan. F = A'+B'+C. Done!</div></div>
+
+<div class="qc"><div class="qn">Q29 &mdash; (A&middot;B&middot;C)' into OR form</div>
+<div class="qa">&#10004;&#65039; A' + B' + C'</div>
+<div class="qe">DeMorgan on 3 inputs: (ABC)' = A'+B'+C'. Complement + AND&rarr;OR</div></div>
+
+<div class="qc"><div class="qn">Q30 &mdash; Simplify F = ((A'+B)' + (A&middot;C)')'</div>
+<div class="qa">&#10004;&#65039; F = ABC</div>
+<div class="qe">(A'+B)' = AB' (DeMorgan: complement, OR&rarr;AND)<br>
+(AC)' = A'+C' (DeMorgan)<br>
+Inner: AB' + A' + C' &nbsp;[two terms inside outer complement]<br>
+F = (AB' + A' + C')' = (AB')'&middot;(A')'&middot;(C')' = (A'+B)&middot;A&middot;C = (A+AA') wait...<br>
+F = A&middot;(A'+B)&middot;C... wait: A&middot;A'=0, so F = A&middot;B&middot;C = <strong>ABC</strong></div></div>
+
+<hr class="d">
+<h2 class="sh">&#128302; Section F&amp;G: Universal Gates + GATE-style (Q31&ndash;Q35)</h2>
+
+<div class="qc"><div class="qn">Q31 &mdash; NAND realizations of NOT, AND, OR. Gate counts?</div>
+<div class="qa">&#10004;&#65039; NOT=1, AND=2, OR=3</div>
+<div class="qe">NOT(A) = NAND(A,A) = ~(A&middot;A) = ~A &rarr; 1 NAND<br>
+AND(A,B) = NOT(NAND(A,B)) = 2 NANDs (NAND then NAND as inverter)<br>
+OR(A,B) = NAND(NOT A, NOT B) = NAND(NAND(A,A), NAND(B,B)) = 3 NANDs<br>
+Because: NAND(A',B') = ~(A'&middot;B') = A+B by DeMorgan &#10003;</div></div>
+
+<div class="qc"><div class="qn">Q32 &mdash; NOR realizations. Gate counts?</div>
+<div class="qa">&#10004;&#65039; NOT=1, OR=2, AND=3</div>
+<div class="qe">NOT(A) = NOR(A,A) = 1 NOR<br>
+OR(A,B) = NOT(NOR(A,B)) = 2 NORs<br>
+AND(A,B) = NOR(NOT A, NOT B) = NOR(NOR(A,A), NOR(B,B)) = 3 NORs</div></div>
+
+<div class="qc"><div class="qn">Q33 &mdash; F = AB + C using only 2-input NANDs. Minimum gates?</div>
+<div class="qa">&#10004;&#65039; 3 NAND gates</div>
+<div class="qe">F = AB + C = ((AB)'&middot;C')' (DeMorgan)<br>
+G1: NAND(A,B) = (AB)'<br>
+G2: NAND(C,C) = C' &nbsp;(inverter)<br>
+G3: NAND((AB)', C') = ~((AB)'&middot;C') = AB+C &#10003;<br>
+3 gates total!</div></div>
+
+<div class="qc"><div class="qn">Q34 &mdash; GATE-Style: Min 2-input NANDs for F=(A+B)(C+D)?</div>
+<div class="qa">&#10004;&#65039; D. 6 NAND gates</div>
+<div class="qe">A+B needs 3 NANDs. C+D needs 3 NANDs. Then AND them? No, use NAND-NAND...<br>
+(A+B) = NAND(A',B') = 3 NANDs | (C+D) = 3 NANDs | AND final = 2 more &rarr; Total 6+overlap = 6 classic count</div></div>
+
+<div class="qc"><div class="qn">Q35 &mdash; Which statements true about PIs, EPIs, don't-cares?</div>
+<div class="qa">&#10004;&#65039; B and C are true</div>
+<div class="qe">A. FALSE &mdash; #PIs &ne; #EPIs always (can have non-essential PIs)<br>
+B. TRUE &mdash; Every EPI MUST appear in minimal SOP (by definition!)<br>
+C. TRUE &mdash; Don't-care minterms CAN be part of a PI (we include them to make bigger groups)<br>
+D. FALSE &mdash; Under classic definition, two minimal covers have same number of terms</div></div>
+
+  </div>
+</div>
+
+<!-- ======= LAB 3 ======= -->
+<div class="page" id="lab3">
+  <div class="ph"><span class="tag-sm">LAB 3</span> Combinational Circuits &mdash; MUX, DEMUX &amp; Verilog Constructs</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Why Data Selector Circuits?</h2>
+<p>CPU ke andar har jagah MUX aur DEMUX hain:</p>
+<ul class="nl">
+  <li><strong>ALU operand select:</strong> Register value ya immediate constant? &rarr; 2:1 MUX</li>
+  <li><strong>PC update:</strong> PC+4, branch target, ya jump target? &rarr; 3:1 MUX</li>
+  <li><strong>Write address:</strong> Kaunse register mein data likhe? &rarr; Decoder (= DEMUX)</li>
+  <li><strong>FPGA LUT:</strong> 16 inputs = 4-var truth table &rarr; 16:1 MUX!</li>
+</ul>
+
+<h2 class="sh">&#128302; Verilog New Constructs</h2>
+<h3 class="th">Ternary Operator (?:) &mdash; 2:1 MUX in 8 characters</h3>
+<div class="code"><span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">condition</span> ? <span class="sig">value_if_1</span> : <span class="sig">value_if_0</span>;
+<span class="cm">// sel=0 &rarr; y=a, sel=1 &rarr; y=b</span>
+<span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">sel</span> ? <span class="sig">b</span> : <span class="sig">a</span>;  <span class="cm">// Perfect 2:1 MUX!</span></div>
+
+<h3 class="th">case Statement &mdash; 4:1 MUX (No latch inference if default!)</h3>
+<div class="code"><span class="kw">always</span> @(*) <span class="kw">begin</span>
+  <span class="kw">case</span> (<span class="sig">sel</span>)
+    <span class="num">2'b00</span>: <span class="sig">y</span> = <span class="sig">i0</span>;
+    <span class="num">2'b01</span>: <span class="sig">y</span> = <span class="sig">i1</span>;
+    <span class="num">2'b10</span>: <span class="sig">y</span> = <span class="sig">i2</span>;
+    <span class="kw">default</span>: <span class="sig">y</span> = <span class="sig">i3</span>;  <span class="cm">// MUST HAVE! Covers 2'b11 + catches X/Z</span>
+  <span class="kw">endcase</span>
+<span class="kw">end</span></div>
+<div class="callout cr"><strong>&#9888;&#65039; Missing default = LATCH inferred!</strong> Agar case sab values cover nahi karta, tool sochta hai "undefined case mein purani value rakh" = latch. Always add default!</div>
+
+<h3 class="th">for Loop in Testbench</h3>
+<div class="code"><span class="ty">integer</span> <span class="sig">k</span>;
+<span class="kw">initial</span> <span class="kw">begin</span>
+  <span class="kw">for</span> (<span class="sig">k</span>=<span class="num">0</span>; <span class="sig">k</span>&lt;<span class="num">4</span>; <span class="sig">k</span>=<span class="sig">k</span>+<span class="num">1</span>) <span class="kw">begin</span>
+    {<span class="sig">s1</span>, <span class="sig">s0</span>} = <span class="sig">k</span>;  <span class="cm">// k=0&rarr;00, k=1&rarr;01, k=2&rarr;10, k=3&rarr;11</span>
+    #<span class="num">10</span>;
+  <span class="kw">end</span>
+<span class="kw">end</span></div>
+
+<h2 class="sh">&#128302; 2:1 MUX &mdash; Gate-Level + Behavioral</h2>
+<div class="formula">Y = S'&middot;I0 + S&middot;I1</div>
+<div class="tw"><table>
+<tr><th>S</th><th>Y</th><th>Meaning</th></tr>
+<tr><td>0</td><td>I0 (=A)</td><td>A selected</td></tr>
+<tr><td>1</td><td>I1 (=B)</td><td>B selected</td></tr>
+</table></div>
+<div class="code"><span class="cm">// Gate-Level (structural) &mdash; shows actual transistors</span>
+<span class="kw">module</span> <span class="fn">mux2x1_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="ty">wire</span> <span class="sig">sel_n</span>, <span class="sig">t0</span>, <span class="sig">t1</span>;
+  not  u0(<span class="sig">sel_n</span>, <span class="sig">sel</span>);         <span class="cm">// S'</span>
+  and  u1(<span class="sig">t0</span>, <span class="sig">a</span>, <span class="sig">sel_n</span>);      <span class="cm">// S'&middot;A</span>
+  and  u2(<span class="sig">t1</span>, <span class="sig">b</span>, <span class="sig">sel</span>);         <span class="cm">// S&middot;B</span>
+  or   u3(<span class="sig">y</span>, <span class="sig">t0</span>, <span class="sig">t1</span>);          <span class="cm">// Y = S'A + SB</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// Behavioral (ternary) &mdash; what you'll actually use</span>
+<span class="kw">module</span> <span class="fn">mux2x1</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">sel</span> ? <span class="sig">b</span> : <span class="sig">a</span>;
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; 4:1 MUX</h2>
+<div class="formula">Y = S1'S0'&middot;I0 + S1'S0&middot;I1 + S1S0'&middot;I2 + S1S0&middot;I3</div>
+<div class="tw"><table>
+<tr><th>S1</th><th>S0</th><th>Y</th></tr>
+<tr><td>0</td><td>0</td><td>I0</td></tr>
+<tr><td>0</td><td>1</td><td>I1</td></tr>
+<tr><td>1</td><td>0</td><td>I2</td></tr>
+<tr><td>1</td><td>1</td><td>I3</td></tr>
+</table></div>
+<div class="code"><span class="cm">// Behavioral with case (preferred)</span>
+<span class="kw">module</span> <span class="fn">mux4x1</span>(<span class="kw">input wire</span> <span class="sig">i0</span>,<span class="sig">i1</span>,<span class="sig">i2</span>,<span class="sig">i3</span>, <span class="kw">input wire</span> [<span class="num">1</span>:<span class="num">0</span>] <span class="sig">sel</span>, <span class="kw">output reg</span> <span class="sig">y</span>);
+  <span class="kw">always</span> @(*) <span class="kw">begin</span>
+    <span class="kw">case</span> (<span class="sig">sel</span>)
+      <span class="num">2'b00</span>: <span class="sig">y</span> = <span class="sig">i0</span>;
+      <span class="num">2'b01</span>: <span class="sig">y</span> = <span class="sig">i1</span>;
+      <span class="num">2'b10</span>: <span class="sig">y</span> = <span class="sig">i2</span>;
+      <span class="kw">default</span>: <span class="sig">y</span> = <span class="sig">i3</span>;
+    <span class="kw">endcase</span>
+  <span class="kw">end</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// Testbench &mdash; for-loop sweeps all select combos</span>
+<span class="kw">module</span> <span class="fn">mux4x1_tb</span>;
+  <span class="ty">reg</span> <span class="sig">i0</span>,<span class="sig">i1</span>,<span class="sig">i2</span>,<span class="sig">i3</span>; <span class="ty">reg</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">sel</span>; <span class="ty">wire</span> <span class="sig">y</span>; <span class="ty">integer</span> <span class="sig">k</span>;
+  <span class="fn">mux4x1</span> dut(.<span class="sig">i0</span>(<span class="sig">i0</span>),.<span class="sig">i1</span>(<span class="sig">i1</span>),.<span class="sig">i2</span>(<span class="sig">i2</span>),.<span class="sig">i3</span>(<span class="sig">i3</span>),.<span class="sig">sel</span>(<span class="sig">sel</span>),.<span class="sig">y</span>(<span class="sig">y</span>));
+  <span class="kw">initial</span> <span class="kw">begin</span>
+    <span class="sig">i0</span>=<span class="num">0</span>; <span class="sig">i1</span>=<span class="num">1</span>; <span class="sig">i2</span>=<span class="num">0</span>; <span class="sig">i3</span>=<span class="num">1</span>;
+    <span class="kw">for</span>(<span class="sig">k</span>=<span class="num">0</span>;<span class="sig">k</span>&lt;<span class="num">4</span>;<span class="sig">k</span>=<span class="sig">k</span>+<span class="num">1</span>) <span class="kw">begin</span> {<span class="sig">sel</span>}=<span class="sig">k</span>; #<span class="num">10</span>; <span class="kw">end</span>
+    $finish;
+  <span class="kw">end</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; 1:2 DEMUX &mdash; Mirror of MUX</h2>
+<p><strong>DEMUX = Data Distributor.</strong> 1 input, routed to one of many outputs. Unselected outputs = 0.</p>
+<div class="formula">Y0 = S'&middot;D &nbsp;&nbsp;&nbsp;&nbsp; Y1 = S&middot;D</div>
+<div class="tw"><table>
+<tr><th>S</th><th>Y0</th><th>Y1</th></tr>
+<tr><td>0</td><td>D</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>D</td></tr>
+</table></div>
+<div class="code"><span class="kw">module</span> <span class="fn">demux1x2</span>(<span class="kw">input wire</span> <span class="sig">d</span>,<span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y0</span>,<span class="sig">y1</span>);
+  <span class="kw">assign</span> <span class="sig">y0</span> = ~<span class="sig">sel</span> &amp; <span class="sig">d</span>;
+  <span class="kw">assign</span> <span class="sig">y1</span> =  <span class="sig">sel</span> &amp; <span class="sig">d</span>;
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; 1:4 DEMUX</h2>
+<div class="tw"><table>
+<tr><th>S1</th><th>S0</th><th>Y0</th><th>Y1</th><th>Y2</th><th>Y3</th></tr>
+<tr><td>0</td><td>0</td><td>D</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>D</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>0</td><td>D</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>D</td></tr>
+</table></div>
+<div class="code"><span class="kw">module</span> <span class="fn">demux1x4</span>(<span class="kw">input wire</span> <span class="sig">d</span>, <span class="kw">input wire</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">sel</span>, <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">y</span>);
+  <span class="kw">always</span> @(*) <span class="kw">begin</span>
+    <span class="sig">y</span> = <span class="num">4'b0000</span>;        <span class="cm">// Clear all first!</span>
+    <span class="kw">case</span>(<span class="sig">sel</span>)
+      <span class="num">2'b00</span>: <span class="sig">y</span>[<span class="num">0</span>] = <span class="sig">d</span>;
+      <span class="num">2'b01</span>: <span class="sig">y</span>[<span class="num">1</span>] = <span class="sig">d</span>;
+      <span class="num">2'b10</span>: <span class="sig">y</span>[<span class="num">2</span>] = <span class="sig">d</span>;
+      <span class="kw">default</span>: <span class="sig">y</span>[<span class="num">3</span>] = <span class="sig">d</span>;
+    <span class="kw">endcase</span>
+  <span class="kw">end</span>
+<span class="kw">endmodule</span></div>
+<div class="callout cw"><strong>Common Errors (Lab 3):</strong><br>
+&#10005; Missing default in case &rarr; Latch inferred!<br>
+&#10005; y declared wire but assigned in always &rarr; Compile error!<br>
+&#10005; {s1,s0} vs {s0,s1} wrong order &rarr; Wrong input selected!<br>
+&#10005; Overlapping case items &rarr; Silent misbehaviour!</div>
+  </div>
+</div>
+
+<!-- ======= LAB 4 ======= -->
+<div class="page" id="lab4">
+  <div class="ph"><span class="tag-sm">LAB 4</span> Adders, Two's Complement &amp; Overflow Detection</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Why Adders Matter</h2>
+<ul class="nl">
+  <li><strong>Subtraction:</strong> A&minus;B = A+(~B)+1 &mdash; same adder with XOR gates!</li>
+  <li><strong>Multiplication:</strong> Array of adders (shift + add)</li>
+  <li><strong>PC update:</strong> PC &larr; PC+4 every single clock cycle</li>
+  <li><strong>Address calculation:</strong> Base + offset, always an adder</li>
+</ul>
+
+<h2 class="sh">&#128302; Half Adder (HA) &mdash; 2 inputs, no carry-in</h2>
+<div class="formula">Sum = A &oplus; B &nbsp;&nbsp;&nbsp;&nbsp; Cout = A &middot; B</div>
+<div class="tw"><table>
+<tr><th>A</th><th>B</th><th>Sum</th><th>Cout</th><th>Binary</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0+0=00</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0+1=01</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1+0=01</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1+1=10 &#9888;</td></tr>
+</table></div>
+<div class="callout ci"><strong>Why "HALF" adder?</strong> It has NO carry-in. So it can only add bit-0 (LSB). For any other bit position, carry from previous stage must be accepted &rarr; need Full Adder!</div>
+<div class="code"><span class="kw">module</span> <span class="fn">half_adder</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">sum</span>,<span class="sig">cout</span>);
+  <span class="kw">assign</span> <span class="sig">sum</span>  = <span class="sig">a</span> ^ <span class="sig">b</span>;   <span class="cm">// XOR</span>
+  <span class="kw">assign</span> <span class="sig">cout</span> = <span class="sig">a</span> &amp; <span class="sig">b</span>;   <span class="cm">// AND</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Full Adder (FA) &mdash; 3 inputs, has carry-in</h2>
+<div class="formula">Sum = A &oplus; B &oplus; Cin &nbsp;&nbsp;&nbsp;&nbsp; Cout = AB + Cin(A&oplus;B)</div>
+<div class="callout ck"><strong>KEY INSIGHT &mdash; Full Adder = 2 Half Adders + OR:</strong><br>
+HA1: a,b &rarr; s1,c1 &nbsp;|&nbsp; HA2: s1,cin &rarr; sum,c2 &nbsp;|&nbsp; cout = c1 | c2<br>
+<strong>Why OR works:</strong> c1 = AB, c2 = (A&oplus;B)&middot;Cin. If A=B=1 then A&oplus;B=0, so c2=0. They can NEVER both be 1 &rarr; OR is correct!</div>
+<div class="tw"><table>
+<tr><th>A</th><th>B</th><th>Cin</th><th>Sum</th><th>Cout</th><th>Rule</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td></tr>
+<tr class="grn"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td></tr>
+</table></div>
+<p><em>Sum=1 when odd number of inputs are 1 (parity). Cout=1 when 2+ inputs are 1 (majority).</em></p>
+<div class="code"><span class="cm">// Structural: 2 HAs + OR (hierarchical design!)</span>
+<span class="kw">module</span> <span class="fn">full_adder</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">cin</span>, <span class="kw">output wire</span> <span class="sig">sum</span>,<span class="sig">cout</span>);
+  <span class="ty">wire</span> <span class="sig">s1</span>,<span class="sig">c1</span>,<span class="sig">c2</span>;
+  <span class="fn">half_adder</span> ha1(.<span class="sig">a</span>(<span class="sig">a</span>),  .<span class="sig">b</span>(<span class="sig">b</span>),  .<span class="sig">sum</span>(<span class="sig">s1</span>), .<span class="sig">cout</span>(<span class="sig">c1</span>));
+  <span class="fn">half_adder</span> ha2(.<span class="sig">a</span>(<span class="sig">s1</span>), .<span class="sig">b</span>(<span class="sig">cin</span>),.<span class="sig">sum</span>(<span class="sig">sum</span>),.<span class="sig">cout</span>(<span class="sig">c2</span>));
+  <span class="kw">assign</span> <span class="sig">cout</span> = <span class="sig">c1</span> | <span class="sig">c2</span>;
+<span class="kw">endmodule</span>
+
+<span class="cm">// Behavioral (shorter, same circuit after synthesis)</span>
+<span class="kw">module</span> <span class="fn">full_adder_beh</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">cin</span>, <span class="kw">output wire</span> <span class="sig">sum</span>,<span class="sig">cout</span>);
+  <span class="kw">assign</span> <span class="sig">sum</span>  = <span class="sig">a</span> ^ <span class="sig">b</span> ^ <span class="sig">cin</span>;
+  <span class="kw">assign</span> <span class="sig">cout</span> = (<span class="sig">a</span>&amp;<span class="sig">b</span>) | (<span class="sig">cin</span>&amp;(<span class="sig">a</span>^<span class="sig">b</span>));
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; 4-bit Ripple Carry Adder (RCA)</h2>
+<p><strong>Idea:</strong> Chain 4 FAs. Bit-0 FA cout goes to bit-1 FA cin. Carry "ripples" stage by stage.</p>
+<div class="callout cw"><strong>&#9888;&#65039; Ripple = SLOW!</strong> Worst case (1111+0001): carry must ripple through ALL 4 stages before last sum is correct. N-bit RCA delay = N &times; t_FA. For 64-bit: 64 &times; 2 = 128 gate delays! Modern CPUs use Carry Lookahead Adder (CLA) instead (parallel carry computation).</div>
+<div class="code"><span class="kw">module</span> <span class="fn">rca_4bit</span>(
+  <span class="kw">input</span>  [<span class="num">3</span>:<span class="num">0</span>] <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">input</span> <span class="sig">cin</span>,
+  <span class="kw">output</span> [<span class="num">3</span>:<span class="num">0</span>] <span class="sig">s</span>, <span class="kw">output</span> <span class="sig">cout</span>);
+  <span class="ty">wire</span> <span class="sig">c1</span>,<span class="sig">c2</span>,<span class="sig">c3</span>;  <span class="cm">// internal carry chain</span>
+  <span class="fn">full_adder</span> fa0(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">0</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">0</span>]),.<span class="sig">cin</span>(<span class="sig">cin</span>),.<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">0</span>]),.<span class="sig">cout</span>(<span class="sig">c1</span>));
+  <span class="fn">full_adder</span> fa1(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">1</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">1</span>]),.<span class="sig">cin</span>(<span class="sig">c1</span>), .<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">1</span>]),.<span class="sig">cout</span>(<span class="sig">c2</span>));
+  <span class="fn">full_adder</span> fa2(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">2</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">2</span>]),.<span class="sig">cin</span>(<span class="sig">c2</span>), .<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">2</span>]),.<span class="sig">cout</span>(<span class="sig">c3</span>));
+  <span class="fn">full_adder</span> fa3(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">3</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">3</span>]),.<span class="sig">cin</span>(<span class="sig">c3</span>), .<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">3</span>]),.<span class="sig">cout</span>(<span class="sig">cout</span>));
+<span class="kw">endmodule</span></div>
+<div class="callout ci"><strong>Test Cases (must know!):</strong><br>
+0001+0001 = 00010 (CF=0) &mdash; Simple, carry only bit0&rarr;bit1<br>
+0111+0001 = 01000 (CF=0) &mdash; Carry ripples bits 0,1,2<br>
+1111+0001 = 10000 (CF=1) &mdash; Full ripple! sum=0000, cout=1 = overflow!<br>
+1000+1000 = 10000 (CF=1) &mdash; Immediate overflow from bit-3</div>
+
+<h2 class="sh">&#128302; Unsigned vs Signed &mdash; Same Bits, Two Meanings</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-h">Unsigned (U): 0 to 2&#8319;&minus;1</div>
+    <div class="card-b">All bits = magnitude only. 4-bit: 0000=0 to 1111=15. Overflow = Cout!<br><strong>CF = Cout</strong></div>
+  </div>
+  <div class="card">
+    <div class="card-h">Signed 2s Comp (S): &minus;2&#8319;&#8315;&#185; to +2&#8319;&#8315;&#185;&minus;1</div>
+    <div class="card-b">MSB = sign bit. 4-bit: 0000=0 to 0111=+7, 1000=&minus;8 to 1111=&minus;1. Cout meaningless!<br><strong>OF = C3 &oplus; C4</strong></div>
+  </div>
+</div>
+<div class="callout cr"><strong>Overflow Flag (OF) = C3 &oplus; C4</strong><br>
+C3 = carry INTO MSB position &nbsp;|&nbsp; C4 (=cout) = carry OUT of MSB<br>
+<strong>Why XOR?</strong> Signed overflow happens when sign bit gets flipped by carry incorrectly.<br>
+Same-sign inputs &rarr; different-sign output = overflow (e.g., +7+1=&minus;8 in 4-bit!)<br>
+0111+0001: MSB cin=1, cout=0 &rarr; OF = 1&oplus;0 = 1 (overflow!) &#9888;&#65039;<br>
+1111+0001: MSB cin=1, cout=1 &rarr; OF = 1&oplus;1 = 0 (no signed overflow &mdash; &minus;1+1=0 ok)</div>
+<div class="tw"><table>
+<tr><th>Case</th><th>Inputs</th><th>Sum</th><th>CF</th><th>OF</th><th>Note</th></tr>
+<tr><td>1</td><td>0001+0001</td><td>0010</td><td>0</td><td>0</td><td>1+1=2, all fine</td></tr>
+<tr><td>2</td><td>1111+0001</td><td>0000</td><td>1</td><td>0</td><td>Unsigned wrap, signed &minus;1+1=0 ok</td></tr>
+<tr><td>3</td><td>0111+0001</td><td>1000</td><td>0</td><td>1</td><td>+7+1 should be +8 but got &minus;8!</td></tr>
+<tr class="red"><td>4</td><td>1000+1000</td><td>0000</td><td>1</td><td>1</td><td>Both CF and OF! Unsigned 8+8=16, Signed &minus;8+&minus;8=&minus;16 both wrong</td></tr>
+</table></div>
+<div class="code"><span class="cm">// Adder-Subtractor: m=0 add, m=1 subtract</span>
+<span class="kw">module</span> <span class="fn">adder_subtractor</span>(<span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">input</span> <span class="sig">m</span>,
+                         <span class="kw">output</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">s</span>, <span class="kw">output</span> <span class="sig">cout</span>);
+  <span class="ty">wire</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">bx</span> = <span class="sig">b</span> ^ {<span class="num">4</span>{<span class="sig">m</span>}}; <span class="cm">// m=1: ~b (flip), m=0: b unchanged</span>
+  <span class="fn">rca_4bit</span> rca(.<span class="sig">a</span>(<span class="sig">a</span>),.<span class="sig">b</span>(<span class="sig">bx</span>),.<span class="sig">cin</span>(<span class="sig">m</span>),.<span class="sig">s</span>(<span class="sig">s</span>),.<span class="sig">cout</span>(<span class="sig">cout</span>));
+  <span class="cm">// m=1: cin=1, b=~b &rarr; a + ~b + 1 = a - b (two's complement!)</span>
+<span class="kw">endmodule</span></div>
+<div class="callout ct"><strong>&#127981; Common Lab 4 Errors:</strong><br>
+&#10005; cout always 0 even for 1+1+1: wrote <code>c1 &amp; c2</code> instead of <code>c1 | c2</code>! AND requires BOTH carries=1 which never happens<br>
+&#10005; sum bits reversed: a[0] is LSB! fa0 should connect to a[0],s[0] not a[3]<br>
+&#10005; Last sum always X: fa3 missing c3 connection &rarr; unconnected Cin = X<br>
+&#10005; No delay in testbench: all at t=0, waveform useless</div>
+  </div>
+</div>
+
+<!-- ======= LAB 5 ======= -->
+<div class="page" id="lab5">
+  <div class="ph"><span class="tag-sm">LAB 5</span> Latches &amp; Flip-Flops &mdash; The Day Your Circuit Learns to Remember</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Why Memory? Combinational vs Sequential</h2>
+<div class="grid2">
+  <div class="card"><div class="card-h">Combinational &mdash; No Memory</div><div class="card-b">Output = f(current inputs only). Same inputs &rarr; always same output. Outputs update instantly when inputs change. Examples: adders, MUXes, decoders.</div></div>
+  <div class="card"><div class="card-h">Sequential &mdash; Has Memory</div><div class="card-b">Output = f(inputs + past state). Same inputs can give different outputs depending on history! A clock decides WHEN state updates. Examples: registers, counters, FSMs.</div></div>
+</div>
+<div class="callout ci"><strong>Try writing a counter with only AND/OR/XOR.</strong> You can't! There's no way to ask "what was Q a moment ago?" without something that remembers. That something = FEEDBACK LOOP.</div>
+<p><strong>Feedback = wire an output back into an input.</strong> With the right topology, two stable states exist &rarr; the circuit can hold either &rarr; memory!</p>
+
+<h2 class="sh">&#128302; SR Latch &mdash; Sabse Pehli Memory Cell</h2>
+<p><strong>Made of 2 cross-coupled NOR gates.</strong> Each gate's output feeds the other's input. This mutual reference = storage.</p>
+<p>Equations: Q = ~(R|Q') &nbsp;&nbsp; Q' = ~(S|Q) &nbsp;&nbsp; When S=R=0: Q=~Q', Q'=~Q (consistent &rarr; stable!)</p>
+<div class="tw"><table>
+<tr><th>S</th><th>R</th><th>Q(next)</th><th>Action</th><th>Notes</th></tr>
+<tr><td>0</td><td>0</td><td>Q_prev</td><td>HOLD</td><td>Both NORs in hold. Q keeps its value!</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>SET</td><td>S=1 forces Q=1</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>RESET</td><td>R=1 forces Q=0</td></tr>
+<tr class="red"><td>1</td><td>1</td><td>??</td><td>FORBIDDEN!</td><td>Both outputs driven to 0. Q=Q'=0 breaks invariant. On release: race!</td></tr>
+</table></div>
+<div class="callout cr"><strong>Forbidden State Deep-Dive (S=R=1):</strong><br>
+Step 1: S=R=1 &rarr; both NOR gates output 0. So Q=0, Q'=0 (violates Q&ne;Q' rule!)<br>
+Step 2: Now release S=R=0. Both NOR inputs are 0 &rarr; both outputs try to go to 1 simultaneously<br>
+Step 3: They RACE! Whichever gate is even slightly faster wins &rarr; non-deterministic result<br>
+In simulator: iverilog shows X (unknown) after S=R=1 then 0. That is CORRECT behavior!</div>
+<div class="code"><span class="cm">// NOR-based SR Latch (cross-coupled assigns)</span>
+<span class="kw">module</span> <span class="fn">sr_latch</span>(<span class="kw">input wire</span> <span class="sig">s</span>,<span class="sig">r</span>, <span class="kw">output wire</span> <span class="sig">q</span>,<span class="sig">qbar</span>);
+  <span class="kw">assign</span> <span class="sig">q</span>    = ~(<span class="sig">r</span> | <span class="sig">qbar</span>);  <span class="cm">// q depends on qbar</span>
+  <span class="kw">assign</span> <span class="sig">qbar</span> = ~(<span class="sig">s</span> | <span class="sig">q</span>);    <span class="cm">// qbar depends on q</span>
+  <span class="cm">// Mutual reference = the memory loop!</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// Testbench: walk through all cases</span>
+<span class="kw">module</span> <span class="fn">sr_tb</span>;
+  <span class="ty">reg</span> <span class="sig">s</span>,<span class="sig">r</span>; <span class="ty">wire</span> <span class="sig">q</span>,<span class="sig">qbar</span>;
+  <span class="fn">sr_latch</span> dut(.<span class="sig">s</span>(<span class="sig">s</span>),.<span class="sig">r</span>(<span class="sig">r</span>),.<span class="sig">q</span>(<span class="sig">q</span>),.<span class="sig">qbar</span>(<span class="sig">qbar</span>));
+  <span class="kw">initial</span> <span class="kw">begin</span>
+    $dumpfile(<span class="str">"sr.vcd"</span>); $dumpvars(<span class="num">0</span>,sr_tb);
+    <span class="sig">s</span>=<span class="num">0</span>; <span class="sig">r</span>=<span class="num">0</span>; #<span class="num">5</span>;  <span class="cm">// HOLD (unknown initial)</span>
+    <span class="sig">s</span>=<span class="num">1</span>; <span class="sig">r</span>=<span class="num">0</span>; #<span class="num">5</span>;  <span class="cm">// SET: q=1</span>
+    <span class="sig">s</span>=<span class="num">0</span>; <span class="sig">r</span>=<span class="num">0</span>; #<span class="num">5</span>;  <span class="cm">// HOLD: q stays 1</span>
+    <span class="sig">s</span>=<span class="num">0</span>; <span class="sig">r</span>=<span class="num">1</span>; #<span class="num">5</span>;  <span class="cm">// RESET: q=0</span>
+    <span class="sig">s</span>=<span class="num">0</span>; <span class="sig">r</span>=<span class="num">0</span>; #<span class="num">5</span>;  <span class="cm">// HOLD: q stays 0</span>
+    <span class="sig">s</span>=<span class="num">1</span>; <span class="sig">r</span>=<span class="num">1</span>; #<span class="num">5</span>;  <span class="cm">// FORBIDDEN: q=qbar=0!</span>
+    <span class="sig">s</span>=<span class="num">0</span>; <span class="sig">r</span>=<span class="num">0</span>; #<span class="num">5</span>;  <span class="cm">// After forbidden: X (metastable)</span>
+    $finish;
+  <span class="kw">end</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; SR Latch Problems &rarr; D Latch Fixes Them</h2>
+<ul class="nl">
+  <li><strong>Problem 1:</strong> Two control lines (S and R) = user can accidentally assert both &rarr; forbidden!</li>
+  <li><strong>Problem 2:</strong> Any glitch on S/R propagates instantly &rarr; unsafe</li>
+  <li><strong>Problem 3:</strong> No concept of "time" &rarr; asynchronous, can't pipeline</li>
+</ul>
+
+<h2 class="sh">&#128302; D Latch &mdash; Forbidden State Impossible</h2>
+<p>D latch = SR latch + enable gate. Internally: S = D&middot;E, R = D'&middot;E. Since S=D&middot;E and R=D'&middot;E, they can never BOTH be 1 at same time (D and D' are always different).</p>
+<div class="tw"><table>
+<tr><th>E</th><th>D</th><th>Q</th><th>Action</th></tr>
+<tr><td>0</td><td>X</td><td>Q_prev</td><td>HOLD &mdash; D can change freely, Q frozen</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>TRANSPARENT: Q=D=0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>TRANSPARENT: Q=D=1</td></tr>
+</table></div>
+<div class="callout cw"><strong>&#9888;&#65039; TRANSPARENT means D wiggles pass through!</strong> During E=1, any noise on D appears on Q. CPU pipelines can't use latches in critical paths because glitches propagate! A 1ns spike on D during E=1 changes Q permanently.</div>
+<div class="code"><span class="cm">// D Latch: using if in always @(*)</span>
+<span class="kw">module</span> <span class="fn">d_latch</span>(<span class="kw">input wire</span> <span class="sig">d</span>,<span class="sig">en</span>, <span class="kw">output reg</span> <span class="sig">q</span>,<span class="sig">q_n</span>);
+  <span class="kw">always</span> @(*) <span class="kw">begin</span>
+    <span class="kw">if</span>(<span class="sig">en</span>) <span class="kw">begin</span>
+      <span class="sig">q</span>   &lt;= <span class="sig">d</span>;
+      <span class="sig">q_n</span> &lt;= ~<span class="sig">d</span>;
+    <span class="kw">end</span>
+    <span class="cm">// en=0: no assignment &rarr; Verilog infers HOLD (latch!)</span>
+  <span class="kw">end</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// Structural: using SR latch as submodule</span>
+<span class="kw">module</span> <span class="fn">d_latch_struct</span>(<span class="kw">input wire</span> <span class="sig">d</span>,<span class="sig">e</span>, <span class="kw">output wire</span> <span class="sig">q</span>,<span class="sig">qbar</span>);
+  <span class="ty">wire</span> <span class="sig">s_int</span>, <span class="sig">r_int</span>;
+  <span class="kw">assign</span> <span class="sig">s_int</span> = <span class="sig">d</span> &amp; <span class="sig">e</span>;    <span class="cm">// S = D&middot;E</span>
+  <span class="kw">assign</span> <span class="sig">r_int</span> = ~<span class="sig">d</span> &amp; <span class="sig">e</span>;   <span class="cm">// R = D'&middot;E (never both 1!)</span>
+  <span class="fn">sr_latch</span> core(.<span class="sig">s</span>(<span class="sig">s_int</span>),.<span class="sig">r</span>(<span class="sig">r_int</span>),.<span class="sig">q</span>(<span class="sig">q</span>),.<span class="sig">qbar</span>(<span class="sig">qbar</span>));
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Level-Triggered vs Edge-Triggered</h2>
+<div class="tw"><table>
+<tr><th>Feature</th><th>D Latch (Level)</th><th>D Flip-Flop (Edge)</th></tr>
+<tr><td>Trigger</td><td>Entire LEVEL (E=HIGH window)</td><td>Single EDGE (0&rarr;1 instant)</td></tr>
+<tr><td>Transparent?</td><td>Yes during E=1</td><td>No &mdash; opaque between edges</td></tr>
+<tr><td>Glitches propagate?</td><td>Yes</td><td>No</td></tr>
+<tr><td>Verilog</td><td>always @(*) if(en)</td><td>always @(posedge clk)</td></tr>
+<tr><td>Output type</td><td>reg (or wire via assign)</td><td>reg (always)</td></tr>
+<tr><td>Used in CPU?</td><td>Rarely (SRAM, time-borrow)</td><td>Everywhere!</td></tr>
+</table></div>
+
+<h2 class="sh">&#128302; D Flip-Flop &mdash; The CPU Workhorse</h2>
+<p>Samples D at exactly ONE instant (rising clock edge). Between edges: Q frozen no matter what D does.</p>
+<div class="formula">Q(next) = D &nbsp;&nbsp;&mdash;&nbsp;&nbsp; sampled at posedge clk</div>
+<div class="code"><span class="cm">// Positive-edge triggered D Flip-Flop</span>
+<span class="kw">module</span> <span class="fn">d_ff</span>(<span class="kw">input wire</span> <span class="sig">clk</span>,<span class="sig">d</span>, <span class="kw">output reg</span> <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">begin</span>
+    <span class="sig">q</span> &lt;= <span class="sig">d</span>;  <span class="cm">// Nonblocking! Captures D at rising edge</span>
+  <span class="kw">end</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// With sync reset and enable</span>
+<span class="kw">module</span> <span class="fn">dff_en_rst</span>(<span class="kw">input wire</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">en</span>,<span class="sig">d</span>, <span class="kw">output reg</span> <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">begin</span>
+    <span class="kw">if</span>     (<span class="sig">rst</span>) <span class="sig">q</span> &lt;= <span class="num">1'b0</span>;  <span class="cm">// Sync reset: highest priority</span>
+    <span class="kw">else if</span>(<span class="sig">en</span>)  <span class="sig">q</span> &lt;= <span class="sig">d</span>;     <span class="cm">// Load when enabled</span>
+    <span class="cm">// else: hold (en=0, rst=0)</span>
+  <span class="kw">end</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Master-Slave DFF &mdash; Two-Phase Airlock</h2>
+<ul class="steps">
+  <li><span class="sn">1</span><strong>Master latch (E=CLK):</strong> When CLK=HIGH &rarr; master transparent, captures D. Slave locked.</li>
+  <li><span class="sn">2</span><strong>Slave latch (E=~CLK):</strong> When CLK=LOW &rarr; slave transparent, passes master output to Q. Master locked.</li>
+  <li><span class="sn">3</span><strong>Never both transparent!</strong> Data can only advance one stage per half-cycle &rarr; Q changes on FALLING EDGE.</li>
+</ul>
+<div class="callout ck"><strong>Why master-slave solves transparency:</strong> Data enters master on rising edge. Data leaves to Q on falling edge. At no point can data race from D all the way to Q in one shot &mdash; the two-latch airlock prevents it!</div>
+<div class="code"><span class="kw">module</span> <span class="fn">master_slave_dff</span>(<span class="kw">input wire</span> <span class="sig">clk</span>,<span class="sig">d</span>, <span class="kw">output wire</span> <span class="sig">q</span>);
+  <span class="ty">wire</span> <span class="sig">qm</span>, <span class="sig">qm_n</span>;
+  <span class="fn">d_latch</span> master(.<span class="sig">d</span>(<span class="sig">d</span>),  .<span class="sig">en</span>(<span class="sig">clk</span>), .<span class="sig">q</span>(<span class="sig">qm</span>), .<span class="sig">q_n</span>(<span class="sig">qm_n</span>));
+  <span class="fn">d_latch</span> slave (<span class="kw">.d</span>(<span class="sig">qm</span>), .<span class="sig">en</span>(~<span class="sig">clk</span>),.<span class="sig">q</span>(<span class="sig">q</span>),  .<span class="sig">q_n</span>());
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Setup Time, Hold Time &amp; Metastability</h2>
+<dl class="def">
+  <dt>Setup Time (t_su)</dt><dd>D must be stable BEFORE clock edge by at least t_su. Like holding still before a photo is taken. Violation &rarr; wrong data captured.</dd>
+  <dt>Hold Time (t_h)</dt><dd>D must be stable AFTER clock edge for at least t_h. Like holding still AFTER shutter clicks. Violation &rarr; corrupt capture.</dd>
+  <dt>Clock-to-Q (t_cq)</dt><dd>Time from clock edge to Q being valid. f_max = 1/(t_cq + t_logic + t_su)</dd>
+  <dt>Metastability</dt><dd>If D changes inside setup/hold window &rarr; FF enters unstable equilibrium. Output stuck between 0 and 1 for UNPREDICTABLE duration. Eventually resolves but WHEN and to WHAT value are non-deterministic!</dd>
+  <dt>CDC (Clock Domain Crossing)</dt><dd>Signal from 100MHz domain sampled by 133MHz FF &rarr; no guaranteed phase relationship &rarr; metastability risk! Fix: 2-stage synchronizer (2 FFs in series on target clock). MTBF increases exponentially with each added stage.</dd>
+</dl>
+<div class="callout cw"><strong>Common Lab 5 Errors:</strong><br>
+&#10005; q declared wire in FF &rarr; always block needs reg<br>
+&#10005; Used = instead of &lt;= in posedge block &rarr; Correct most times but race in cascaded FFs<br>
+&#10005; Missing begin/end on multi-line always &rarr; Only first statement in posedge!<br>
+&#10005; S=R=1 shows X: NOT a bug! That IS the forbidden state response<br>
+&#10005; Called your DFF a latch: if posedge clk, it is a FF. If always @(*), it is a latch</div>
+  </div>
+</div>
+
+<!-- ======= LAB 6 ======= -->
+<div class="page" id="lab6">
+  <div class="ph"><span class="tag-sm">LAB 6</span> Registers, Shift Registers &amp; Counters</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Registers</h2>
+<p>Register = N D flip-flops sharing same clock. Stores N bits of state.</p>
+<div class="code"><span class="cm">// 8-bit register with load enable</span>
+<span class="kw">module</span> <span class="fn">reg8</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">ld</span>, <span class="kw">input</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">d</span>, <span class="kw">output reg</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">if</span>(<span class="sig">ld</span>) <span class="sig">q</span> &lt;= <span class="sig">d</span>;
+  <span class="cm">// ld=0: q holds. ld=1: q captures d. Synthesis infers 8 DFFs.</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// 8-bit register with sync reset + load enable</span>
+<span class="kw">module</span> <span class="fn">reg8_rst</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">ld</span>, <span class="kw">input</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">d</span>, <span class="kw">output reg</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>     (<span class="sig">rst</span>) <span class="sig">q</span> &lt;= <span class="num">8'b0</span>;  <span class="cm">// Sync reset: priority 1</span>
+    <span class="kw">else if</span>(<span class="sig">ld</span>)  <span class="sig">q</span> &lt;= <span class="sig">d</span>;     <span class="cm">// Load: priority 2</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Shift Registers &mdash; All 4 Types</h2>
+<div class="tw"><table>
+<tr><th>Type</th><th>Input</th><th>Output</th><th>Use Case</th><th>Key Operation</th></tr>
+<tr><td><strong>SISO</strong></td><td>Serial</td><td>Serial</td><td>Delay line</td><td>q &lt;= {q[N-2:0], d_in}</td></tr>
+<tr><td><strong>SIPO</strong></td><td>Serial</td><td>Parallel</td><td>UART receiver, data collection</td><td>Shift in, read all bits</td></tr>
+<tr><td><strong>PISO</strong></td><td>Parallel</td><td>Serial</td><td>UART transmitter, data send</td><td>Load all, shift out one bit</td></tr>
+<tr><td><strong>PIPO</strong></td><td>Parallel</td><td>Parallel</td><td>Normal register</td><td>Direct load</td></tr>
+</table></div>
+<div class="callout ci"><strong>UART uses BOTH:</strong> Transmitter = PISO (CPU gives parallel byte, shifts out serially). Receiver = SIPO (receives serial bits, assembles parallel byte). Baud rate = shift clock frequency.</div>
+<div class="code"><span class="cm">// SIPO (Serial In, Parallel Out) &mdash; 4-bit</span>
+<span class="kw">module</span> <span class="fn">sipo</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">d_in</span>, <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">q</span> &lt;= <span class="num">4'b0</span>;
+    <span class="kw">else</span>    <span class="sig">q</span> &lt;= {<span class="sig">q</span>[<span class="num">2</span>:<span class="num">0</span>], <span class="sig">d_in</span>};  <span class="cm">// Shift left: q3&larr;q2, q2&larr;q1, q1&larr;q0, q0&larr;d_in</span>
+<span class="kw">endmodule</span>
+
+<span class="cm">// PISO (Parallel In, Serial Out) &mdash; sh_ld=0: load, sh_ld=1: shift</span>
+<span class="kw">module</span> <span class="fn">piso</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">sh_ld</span>, <span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">d</span>,
+            <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>, <span class="kw">output wire</span> <span class="sig">d_out</span>);
+  <span class="kw">assign</span> <span class="sig">d_out</span> = <span class="sig">q</span>[<span class="num">0</span>];  <span class="cm">// LSB always output</span>
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>     (<span class="sig">rst</span>)    <span class="sig">q</span> &lt;= <span class="num">4'b0</span>;
+    <span class="kw">else if</span>(!<span class="sig">sh_ld</span>) <span class="sig">q</span> &lt;= <span class="sig">d</span>;              <span class="cm">// Parallel load</span>
+    <span class="kw">else</span>            <span class="sig">q</span> &lt;= {<span class="num">1'b0</span>, <span class="sig">q</span>[<span class="num">3</span>:<span class="num">1</span>]};  <span class="cm">// Shift right, MSB=0</span>
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Counters &mdash; Ripple vs Synchronous</h2>
+<div class="grid2">
+  <div class="card"><div class="card-h">Ripple Counter (Async) &#10060;</div><div class="card-b">Each FF's Q clocks next FF. Delay = N &times; t_FF. Shows glitchy intermediate states during ripple. Example: 4-bit going 0111&rarr;1000 briefly shows 0110, 0100, 0000. BAD for decoders!</div></div>
+  <div class="card"><div class="card-h">Synchronous Counter &#10004;&#65039;</div><div class="card-b">ALL FFs share same clock. T input computed in parallel. Delay = t_logic + t_FF (constant regardless of N!). Clean, glitch-free transitions. Always use this!</div></div>
+</div>
+<div class="code"><span class="cm">// 4-bit Synchronous Up Counter with Terminal Count (TC)</span>
+<span class="kw">module</span> <span class="fn">sync_counter</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">en</span>, <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>, <span class="kw">output wire</span> <span class="sig">tc</span>);
+  <span class="kw">assign</span> <span class="sig">tc</span> = &amp;<span class="sig">q</span>;  <span class="cm">// Reduction AND: 1 only when ALL bits=1 (q=1111=15)</span>
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>     (<span class="sig">rst</span>) <span class="sig">q</span> &lt;= <span class="num">4'b0</span>;
+    <span class="kw">else if</span>(<span class="sig">en</span>)  <span class="sig">q</span> &lt;= <span class="sig">q</span> + <span class="num">1</span>;  <span class="cm">// 1111+1 = 10000, drops MSB &rarr; 0000 (wrap!)</span>
+<span class="kw">endmodule</span></div>
+<div class="callout ck"><strong>12-bit ripple counter @ 0.6ns/FF:</strong> Max freq = 1/(12&times;0.6ns) = 138.9 MHz. Synchronous counter: freq = 1/(0.6ns + logic_delay). Far faster and cleaner!</div>
+  </div>
+</div>
+
+<!-- ======= LAB 7 ======= -->
+<div class="page" id="lab7">
+  <div class="ph"><span class="tag-sm">LAB 7</span> Register Files &amp; Finite State Machines (FSM)</div>
+  <div class="pc">
+
+<h2 class="sh">&#128302; Register File Architecture</h2>
+<div class="callout ci"><strong>RISC-V Standard register file:</strong><br>
+32 registers &times; 32 bits = 1024 FFs total<br>
+2 READ ports (ASYNCHRONOUS &mdash; combinational, instant, no clock!)<br>
+1 WRITE port (SYNCHRONOUS &mdash; posedge clk)<br>
+x0 (R0) hardwired to 0: writes silently ignored, reads always return 0</div>
+
+<h3 class="th">How READ works (Combinational)</h3>
+<ul class="steps">
+  <li><span class="sn">1</span>Read address (5-bit for 32 regs) &rarr; 32:1 MUX</li>
+  <li><span class="sn">2</span>All register outputs connected to MUX inputs</li>
+  <li><span class="sn">3</span>Address = select signal &rarr; output appears instantly (no clock!)</li>
+  <li><span class="sn">4</span>Two independent MUXes &rarr; two simultaneous reads in one cycle!</li>
+</ul>
+<h3 class="th">How WRITE works (Synchronous)</h3>
+<ul class="steps">
+  <li><span class="sn">1</span>Write address &rarr; 5-to-32 Decoder &rarr; one enable line goes HIGH</li>
+  <li><span class="sn">2</span>Only that register's WE (write enable) = 1</li>
+  <li><span class="sn">3</span>On posedge clk: only that register captures write data</li>
+</ul>
+<div class="callout cr"><strong>MOST TESTED FACT:</strong> Register file reads are ASYNCHRONOUS (combinational)! A student claiming "reads wait for clock" is WRONG. Only writes are synchronous. This enables: read operands &rarr; ALU computes &rarr; write result, all in 1 cycle!</div>
+<div class="code"><span class="cm">// 4-register 32-bit file with dual read, single write, sync reset</span>
+<span class="kw">module</span> <span class="fn">regfile</span>(
+  <span class="kw">input</span>       <span class="sig">clk</span>, <span class="sig">rst</span>, <span class="sig">we</span>,
+  <span class="kw">input</span>[<span class="num">1</span>:<span class="num">0</span>]  <span class="sig">wr_addr</span>, <span class="sig">ra1</span>, <span class="sig">ra2</span>,
+  <span class="kw">input</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">wr_data</span>,
+  <span class="kw">output</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">rd1</span>, <span class="sig">rd2</span>);
+
+  <span class="ty">reg</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">regs</span>[<span class="num">0</span>:<span class="num">3</span>];
+  <span class="kw">integer</span> <span class="sig">i</span>;
+  <span class="kw">initial</span> <span class="kw">for</span>(<span class="sig">i</span>=<span class="num">0</span>;<span class="sig">i</span>&lt;<span class="num">4</span>;<span class="sig">i</span>=<span class="sig">i</span>+<span class="num">1</span>) <span class="sig">regs</span>[<span class="sig">i</span>]=<span class="num">32'b0</span>;
+
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">begin</span>
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="kw">for</span>(<span class="sig">i</span>=<span class="num">0</span>;<span class="sig">i</span>&lt;<span class="num">4</span>;<span class="sig">i</span>=<span class="sig">i</span>+<span class="num">1</span>) <span class="sig">regs</span>[<span class="sig">i</span>] &lt;= <span class="num">32'b0</span>;
+    <span class="kw">else if</span>(<span class="sig">we</span> &amp;&amp; <span class="sig">wr_addr</span> != <span class="num">2'b00</span>) <span class="sig">regs</span>[<span class="sig">wr_addr</span>] &lt;= <span class="sig">wr_data</span>;
+    <span class="cm">// R0 write ignored (addr=00 check)</span>
+  <span class="kw">end</span>
+
+  <span class="cm">// Async reads (combinational!)</span>
+  <span class="kw">assign</span> <span class="sig">rd1</span> = (<span class="sig">ra1</span>==<span class="num">2'b00</span>) ? <span class="num">32'b0</span> : <span class="sig">regs</span>[<span class="sig">ra1</span>];
+  <span class="kw">assign</span> <span class="sig">rd2</span> = (<span class="sig">ra2</span>==<span class="num">2'b00</span>) ? <span class="num">32'b0</span> : <span class="sig">regs</span>[<span class="sig">ra2</span>];
+<span class="kw">endmodule</span></div>
+
+<h2 class="sh">&#128302; Moore FSM &mdash; 1011 Sequence Detector</h2>
+<div class="callout ck"><strong>FSM Formal Definition: (S, I, O, &delta;, &lambda;)</strong><br>
+S = States &nbsp;|&nbsp; I = Inputs &nbsp;|&nbsp; O = Outputs<br>
+&delta; = Next-state function: &delta;(state, input) &rarr; next_state<br>
+&lambda; = Output function: Moore &rarr; &lambda;(state), Mealy &rarr; &lambda;(state, input)</div>
+
+<div class="grid2">
+  <div class="card"><div class="card-h">Moore Machine</div><div class="card-b"><strong>Output = f(state only)</strong>. Output written INSIDE the state circle. Glitch-free (output stable between edges). May need more states. "Output IN the circle"</div></div>
+  <div class="card"><div class="card-h">Mealy Machine</div><div class="card-b"><strong>Output = f(state + input)</strong>. Output written ON the transition arrow. Faster response (same cycle as input). Fewer states. Can glitch. "Output ON the arrow"</div></div>
+</div>
+
+<h3 class="th">1011 Detector State Table (5 States, Moore)</h3>
+<div class="tw"><table>
+<tr><th>State</th><th>Meaning</th><th>Input=0 &rarr; Next</th><th>Input=1 &rarr; Next</th><th>Output</th></tr>
+<tr><td>S0</td><td>Idle</td><td>S0</td><td>S1</td><td>0</td></tr>
+<tr><td>S1</td><td>Got "1"</td><td>S2</td><td>S1</td><td>0</td></tr>
+<tr><td>S2</td><td>Got "10"</td><td>S0</td><td>S3</td><td>0</td></tr>
+<tr><td>S3</td><td>Got "101"</td><td>S2</td><td>S4</td><td>0</td></tr>
+<tr class="grn"><td>S4</td><td>Got "1011" !</td><td>S2</td><td>S1</td><td>1</td></tr>
+</table></div>
+<div class="callout cr"><strong>&#9888;&#65039; Tricky transitions at S4 (MATCH!) &mdash; most common exam trap:</strong><br>
+<strong>S4 + input=1 &rarr; S1 (NOT S0!):</strong> That trailing '1' could start a NEW "1011". Going to S1 means "I've seen one '1' so far" = correct overlap handling!<br>
+<strong>S4 + input=0 &rarr; S2 (NOT S0!):</strong> After "1011" + 0 we have "10110". Last two chars "10" = prefix of 1011! So S2 (got "10") is correct.<br>
+<strong>Going to S0 on either &rarr; MISSES overlapping patterns! Wrong answer!</strong></div>
+
+<h3 class="th">State Encoding</h3>
+<dl class="def">
+  <dt>Binary Encoding</dt><dd>5 states &rarr; &lceil;log&#8322;5&rceil; = 3 FFs (2&sup3;=8&ge;5). Compact but complex decode logic. Unused states (5,6,7) need handling.</dd>
+  <dt>One-Hot Encoding</dt><dd>5 states &rarr; 5 FFs. Only ONE FF=1 at a time. Simple next-state logic. FPGAs PREFER this (LUTs handle it efficiently). S0=10000, S1=01000, S2=00100, S3=00010, S4=00001</dd>
+  <dt>Gray Encoding</dt><dd>Adjacent states differ by 1 bit. S0=000, S1=001, S2=011, S3=010, S4=110. Minimizes transitions &rarr; less power, fewer glitches.</dd>
+</dl>
+<div class="code"><span class="cm">// 1011 Moore FSM &mdash; Binary encoded (3 FFs)</span>
+<span class="kw">module</span> <span class="fn">fsm_1011</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">x</span>, <span class="kw">output reg</span> <span class="sig">z</span>);
+  <span class="ty">reg</span>[<span class="num">2</span>:<span class="num">0</span>] <span class="sig">state</span>, <span class="sig">next</span>;
+  <span class="kw">parameter</span> S0=<span class="num">0</span>,S1=<span class="num">1</span>,S2=<span class="num">2</span>,S3=<span class="num">3</span>,S4=<span class="num">4</span>;
+
+  <span class="cm">// State register (sequential)</span>
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">state</span> &lt;= S0;
+    <span class="kw">else</span>    <span class="sig">state</span> &lt;= <span class="sig">next</span>;
+
+  <span class="cm">// Next-state logic (combinational)</span>
+  <span class="kw">always</span> @(*) <span class="kw">begin</span>
+    <span class="kw">case</span>(<span class="sig">state</span>)
+      S0: <span class="sig">next</span> = <span class="sig">x</span> ? S1 : S0;
+      S1: <span class="sig">next</span> = <span class="sig">x</span> ? S1 : S2;
+      S2: <span class="sig">next</span> = <span class="sig">x</span> ? S3 : S0;
+      S3: <span class="sig">next</span> = <span class="sig">x</span> ? S4 : S2;
+      S4: <span class="sig">next</span> = <span class="sig">x</span> ? S1 : S2;  <span class="cm">// Overlap handling!</span>
+      <span class="kw">default</span>: <span class="sig">next</span> = S0;
+    <span class="kw">endcase</span>
+  <span class="kw">end</span>
+
+  <span class="cm">// Output logic (Moore: only depends on state)</span>
+  <span class="kw">always</span> @(*) <span class="sig">z</span> = (state == S4) ? <span class="num">1</span>'<span class="num">b1</span> : <span class="num">1</span>'<span class="num">b0</span>;
+<span class="kw">endmodule</span></div>
+<div class="callout ct"><strong>FSM Design 6-Step Flow:</strong><br>
+1. Understand: states, inputs, outputs<br>
+2. List all (state, input) &rarr; (next, output) transitions<br>
+3. Draw state diagram<br>
+4. Create state table<br>
+5. Choose encoding (binary/one-hot/gray)<br>
+6. Implement: FFs for state + combinational next-state + output logic</div>
+  </div>
+</div>
+
+<!-- ===== ASSIGNMENTS ===== -->
+<div class="page" id="assign">
+  <div class="ph"><span class="tag-sm">ASSIGN</span> All 26 Assignment Solutions (Complete Verilog)</div>
+  <div class="pc">
+<div class="as">
+<h3>Q1: NOR Gate</h3>
+<div class="ac"><div class="at">2-input NOR: output HIGH only when BOTH inputs LOW. Truth: 00&rarr;1, 01&rarr;0, 10&rarr;0, 11&rarr;0</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">nor_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~(<span class="sig">a</span> | <span class="sig">b</span>);
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q2: NAND Gate</h3>
+<div class="ac"><div class="at">Output LOW only when BOTH inputs HIGH. Truth: 00&rarr;1, 01&rarr;1, 10&rarr;1, 11&rarr;0</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">nand_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~(<span class="sig">a</span> &amp; <span class="sig">b</span>);
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q3: NOT Gate</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">not_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~<span class="sig">a</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q4: XOR Gate</h3>
+<div class="ac"><div class="at">Output HIGH when inputs DIFFERENT. Parity detector.</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">xor_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> ^ <span class="sig">b</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q5: OR Gate</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">or_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> | <span class="sig">b</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q6: AND Gate</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">and_gate</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = <span class="sig">a</span> &amp; <span class="sig">b</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q7: 2:1 MUX using Logic Gates</h3>
+<div class="ac"><div class="at">sel=0&rarr;y=a, sel=1&rarr;y=b. Y = S'A+SB using AND/OR/NOT.</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">mux2x1</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = (~<span class="sig">sel</span> &amp; <span class="sig">a</span>) | (<span class="sig">sel</span> &amp; <span class="sig">b</span>);  <span class="cm">// Y = S'A + SB</span>
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q8: 4:1 MUX</h3>
+<div class="ac"><div class="at">sel[1:0]: 00&rarr;i0, 01&rarr;i1, 10&rarr;i2, 11&rarr;i3.</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">mux4x1</span>(<span class="kw">input wire</span> <span class="sig">i0</span>,<span class="sig">i1</span>,<span class="sig">i2</span>,<span class="sig">i3</span>, <span class="kw">input</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = (~<span class="sig">sel</span>[<span class="num">1</span>]&amp;~<span class="sig">sel</span>[<span class="num">0</span>]&amp;<span class="sig">i0</span>) | (~<span class="sig">sel</span>[<span class="num">1</span>]&amp;<span class="sig">sel</span>[<span class="num">0</span>]&amp;<span class="sig">i1</span>) |
+             (<span class="sig">sel</span>[<span class="num">1</span>]&amp;~<span class="sig">sel</span>[<span class="num">0</span>]&amp;<span class="sig">i2</span>) | (<span class="sig">sel</span>[<span class="num">1</span>]&amp;<span class="sig">sel</span>[<span class="num">0</span>]&amp;<span class="sig">i3</span>);
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q9: 1:2 DEMUX</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">demux1x2</span>(<span class="kw">input wire</span> <span class="sig">i</span>,<span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y0</span>,<span class="sig">y1</span>);
+  <span class="kw">assign</span> <span class="sig">y0</span>=<span class="sig">i</span>&amp;~<span class="sig">sel</span>; <span class="kw">assign</span> <span class="sig">y1</span>=<span class="sig">i</span>&amp;<span class="sig">sel</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q10: 1:4 DEMUX</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">demux1x4</span>(<span class="kw">input wire</span> <span class="sig">i</span>, <span class="kw">input</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">sel</span>, <span class="kw">output wire</span> <span class="sig">y0</span>,<span class="sig">y1</span>,<span class="sig">y2</span>,<span class="sig">y3</span>);
+  <span class="kw">assign</span> <span class="sig">y0</span>=<span class="sig">i</span>&amp;~<span class="sig">sel</span>[<span class="num">1</span>]&amp;~<span class="sig">sel</span>[<span class="num">0</span>]; <span class="kw">assign</span> <span class="sig">y1</span>=<span class="sig">i</span>&amp;~<span class="sig">sel</span>[<span class="num">1</span>]&amp;<span class="sig">sel</span>[<span class="num">0</span>];
+  <span class="kw">assign</span> <span class="sig">y2</span>=<span class="sig">i</span>&amp; <span class="sig">sel</span>[<span class="num">1</span>]&amp;~<span class="sig">sel</span>[<span class="num">0</span>]; <span class="kw">assign</span> <span class="sig">y3</span>=<span class="sig">i</span>&amp; <span class="sig">sel</span>[<span class="num">1</span>]&amp;<span class="sig">sel</span>[<span class="num">0</span>];
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q11: Half Adder</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">half_adder</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">output wire</span> <span class="sig">sum</span>,<span class="sig">cout</span>);
+  <span class="kw">assign</span> <span class="sig">sum</span>=<span class="sig">a</span>^<span class="sig">b</span>; <span class="kw">assign</span> <span class="sig">cout</span>=<span class="sig">a</span>&amp;<span class="sig">b</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q12: Full Adder</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">full_adder</span>(<span class="kw">input wire</span> <span class="sig">a</span>,<span class="sig">b</span>,<span class="sig">cin</span>, <span class="kw">output wire</span> <span class="sig">sum</span>,<span class="sig">cout</span>);
+  <span class="kw">assign</span> <span class="sig">sum</span>=<span class="sig">a</span>^<span class="sig">b</span>^<span class="sig">cin</span>;
+  <span class="kw">assign</span> <span class="sig">cout</span>=(<span class="sig">a</span>&amp;<span class="sig">b</span>)|(<span class="sig">cin</span>&amp;(<span class="sig">a</span>^<span class="sig">b</span>));
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q13: 4-bit Ripple Carry Adder</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">rca_4bit</span>(<span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">input</span> <span class="sig">cin</span>, <span class="kw">output</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">s</span>, <span class="kw">output</span> <span class="sig">cout</span>);
+  <span class="ty">wire</span> <span class="sig">c1</span>,<span class="sig">c2</span>,<span class="sig">c3</span>;
+  <span class="fn">full_adder</span> fa0(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">0</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">0</span>]),.<span class="sig">cin</span>(<span class="sig">cin</span>),.<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">0</span>]),.<span class="sig">cout</span>(<span class="sig">c1</span>));
+  <span class="fn">full_adder</span> fa1(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">1</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">1</span>]),.<span class="sig">cin</span>(<span class="sig">c1</span>),.<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">1</span>]),.<span class="sig">cout</span>(<span class="sig">c2</span>));
+  <span class="fn">full_adder</span> fa2(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">2</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">2</span>]),.<span class="sig">cin</span>(<span class="sig">c2</span>),.<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">2</span>]),.<span class="sig">cout</span>(<span class="sig">c3</span>));
+  <span class="fn">full_adder</span> fa3(.<span class="sig">a</span>(<span class="sig">a</span>[<span class="num">3</span>]),.<span class="sig">b</span>(<span class="sig">b</span>[<span class="num">3</span>]),.<span class="sig">cin</span>(<span class="sig">c3</span>),.<span class="sig">sum</span>(<span class="sig">s</span>[<span class="num">3</span>]),.<span class="sig">cout</span>(<span class="sig">cout</span>));
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q14: Sign Extender 4-bit &rarr; 8-bit</h3>
+<div class="ac"><div class="at">Preserve signed value when widening. MSB copies fill upper bits.</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">sign_ext</span>(<span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">a</span>, <span class="kw">output</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = {{<span class="num">4</span>{<span class="sig">a</span>[<span class="num">3</span>]}}, <span class="sig">a</span>};
+  <span class="cm">// a[3]=0 (positive): 0000xxxx. a[3]=1 (negative): 1111xxxx</span>
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q15: Adder-Subtractor</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">adder_sub</span>(<span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">a</span>,<span class="sig">b</span>, <span class="kw">input</span> <span class="sig">m</span>, <span class="kw">output</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">s</span>, <span class="kw">output</span> <span class="sig">cout</span>);
+  <span class="ty">wire</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">bx</span>=<span class="sig">b</span>^{<span class="num">4</span>{<span class="sig">m</span>}};
+  <span class="fn">rca_4bit</span> rca(.<span class="sig">a</span>(<span class="sig">a</span>),.<span class="sig">b</span>(<span class="sig">bx</span>),.<span class="sig">cin</span>(<span class="sig">m</span>),.<span class="sig">s</span>(<span class="sig">s</span>),.<span class="sig">cout</span>(<span class="sig">cout</span>));
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q16: Two's Complement Negator</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">twos_comp</span>(<span class="kw">input</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">a</span>, <span class="kw">output</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">y</span>);
+  <span class="kw">assign</span> <span class="sig">y</span> = ~<span class="sig">a</span> + <span class="num">8'd1</span>;  <span class="cm">// Flip all bits, add 1</span>
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q17: D Latch</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">d_latch</span>(<span class="kw">input wire</span> <span class="sig">d</span>,<span class="sig">en</span>, <span class="kw">output reg</span> <span class="sig">q</span>,<span class="sig">q_n</span>);
+  <span class="kw">always</span> @(*) <span class="kw">if</span>(<span class="sig">en</span>) <span class="kw">begin</span> <span class="sig">q</span>&lt;=<span class="sig">d</span>; <span class="sig">q_n</span>&lt;=~<span class="sig">d</span>; <span class="kw">end</span>
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q18: D Flip-Flop with Enable &amp; Reset</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">dff_en</span>(<span class="kw">input wire</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">en</span>,<span class="sig">d</span>, <span class="kw">output reg</span> <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>     (<span class="sig">rst</span>) <span class="sig">q</span>&lt;=<span class="num">1'b0</span>;
+    <span class="kw">else if</span>(<span class="sig">en</span>)  <span class="sig">q</span>&lt;=<span class="sig">d</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q19: Master-Slave DFF</h3>
+<div class="ac"><div class="at">Q changes on FALLING edge. Built from 2 d_latch instances.</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">ms_dff</span>(<span class="kw">input wire</span> <span class="sig">clk</span>,<span class="sig">d</span>, <span class="kw">output wire</span> <span class="sig">q</span>);
+  <span class="ty">wire</span> <span class="sig">qm</span>,<span class="sig">qmn</span>;
+  <span class="fn">d_latch</span> master(.<span class="sig">d</span>(<span class="sig">d</span>),  .<span class="sig">en</span>(<span class="sig">clk</span>), .<span class="sig">q</span>(<span class="sig">qm</span>), .<span class="sig">q_n</span>(<span class="sig">qmn</span>));
+  <span class="fn">d_latch</span> slave (.<span class="sig">d</span>(<span class="sig">qm</span>), .<span class="sig">en</span>(~<span class="sig">clk</span>),.<span class="sig">q</span>(<span class="sig">q</span>),  .<span class="sig">q_n</span>());
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q20: 8-bit Register with Load Enable</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">reg8</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">ld</span>, <span class="kw">input</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">d</span>, <span class="kw">output reg</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">if</span>(<span class="sig">ld</span>) <span class="sig">q</span>&lt;=<span class="sig">d</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q21: 8-bit Register with Sync Reset</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">reg8_rst</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">ld</span>, <span class="kw">input</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">d</span>, <span class="kw">output reg</span>[<span class="num">7</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">q</span>&lt;=<span class="num">8'b0</span>; <span class="kw">else if</span>(<span class="sig">ld</span>) <span class="sig">q</span>&lt;=<span class="sig">d</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q22: 4-bit Sync Up Counter</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">counter4</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">en</span>, <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>, <span class="kw">output wire</span> <span class="sig">tc</span>);
+  <span class="kw">assign</span> <span class="sig">tc</span>=(&amp;<span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">q</span>&lt;=<span class="num">0</span>; <span class="kw">else if</span>(<span class="sig">en</span>) <span class="sig">q</span>&lt;=<span class="sig">q</span>+<span class="num">1</span>;
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q23: SIPO Shift Register</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">sipo</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">d_in</span>, <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>);
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">q</span>&lt;=<span class="num">0</span>; <span class="kw">else</span> <span class="sig">q</span>&lt;={<span class="sig">q</span>[<span class="num">2</span>:<span class="num">0</span>],<span class="sig">d_in</span>};
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q24: PISO Shift Register</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">piso</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">sh_ld</span>, <span class="kw">input</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">d</span>,
+            <span class="kw">output reg</span>[<span class="num">3</span>:<span class="num">0</span>] <span class="sig">q</span>, <span class="kw">output wire</span> <span class="sig">d_out</span>);
+  <span class="kw">assign</span> <span class="sig">d_out</span>=<span class="sig">q</span>[<span class="num">0</span>];
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>)
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="sig">q</span>&lt;=<span class="num">0</span>; <span class="kw">else if</span>(!<span class="sig">sh_ld</span>) <span class="sig">q</span>&lt;=<span class="sig">d</span>; <span class="kw">else</span> <span class="sig">q</span>&lt;={<span class="num">1'b0</span>,<span class="sig">q</span>[<span class="num">3</span>:<span class="num">1</span>]};
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q25: 4-Register File (Dual Read)</h3>
+<div class="ac"><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">regfile</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">we</span>, <span class="kw">input</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">wa</span>,<span class="sig">ra1</span>,<span class="sig">ra2</span>,
+              <span class="kw">input</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">wd</span>, <span class="kw">output</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">rd1</span>,<span class="sig">rd2</span>);
+  <span class="ty">reg</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">r</span>[<span class="num">0</span>:<span class="num">3</span>];
+  <span class="kw">integer</span> <span class="sig">i</span>; <span class="kw">initial</span> <span class="kw">for</span>(<span class="sig">i</span>=<span class="num">0</span>;<span class="sig">i</span>&lt;<span class="num">4</span>;<span class="sig">i</span>=<span class="sig">i</span>+<span class="num">1</span>) <span class="sig">r</span>[<span class="sig">i</span>]=<span class="num">0</span>;
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">if</span>(<span class="sig">we</span>) <span class="sig">r</span>[<span class="sig">wa</span>]&lt;=<span class="sig">wd</span>;
+  <span class="kw">assign</span> <span class="sig">rd1</span>=<span class="sig">r</span>[<span class="sig">ra1</span>]; <span class="kw">assign</span> <span class="sig">rd2</span>=<span class="sig">r</span>[<span class="sig">ra2</span>];
+<span class="kw">endmodule</span></div></div>
+
+<h3>Q26: Register File + Sync Reset + Hardwired R0=0</h3>
+<div class="ac"><div class="at">R0 writes silently ignored. Reads from R0 always return 0 (RISC-V x0 behavior).</div><div class="sl">Solution:</div>
+<div class="code"><span class="kw">module</span> <span class="fn">regfile_x0</span>(<span class="kw">input</span> <span class="sig">clk</span>,<span class="sig">rst</span>,<span class="sig">we</span>, <span class="kw">input</span>[<span class="num">1</span>:<span class="num">0</span>] <span class="sig">wa</span>,<span class="sig">ra1</span>,<span class="sig">ra2</span>,
+                  <span class="kw">input</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">wd</span>, <span class="kw">output</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">rd1</span>,<span class="sig">rd2</span>);
+  <span class="ty">reg</span>[<span class="num">31</span>:<span class="num">0</span>] <span class="sig">r</span>[<span class="num">0</span>:<span class="num">3</span>];
+  <span class="kw">integer</span> <span class="sig">k</span>; <span class="kw">initial</span> <span class="kw">for</span>(<span class="sig">k</span>=<span class="num">0</span>;<span class="sig">k</span>&lt;<span class="num">4</span>;<span class="sig">k</span>=<span class="sig">k</span>+<span class="num">1</span>) <span class="sig">r</span>[<span class="sig">k</span>]=<span class="num">0</span>;
+  <span class="kw">always</span> @(<span class="kw">posedge</span> <span class="sig">clk</span>) <span class="kw">begin</span>
+    <span class="kw">if</span>(<span class="sig">rst</span>) <span class="kw">for</span>(<span class="sig">k</span>=<span class="num">0</span>;<span class="sig">k</span>&lt;<span class="num">4</span>;<span class="sig">k</span>=<span class="sig">k</span>+<span class="num">1</span>) <span class="sig">r</span>[<span class="sig">k</span>]&lt;=<span class="num">0</span>;
+    <span class="kw">else if</span>(<span class="sig">we</span> &amp;&amp; <span class="sig">wa</span>!=<span class="num">2'b00</span>) <span class="sig">r</span>[<span class="sig">wa</span>]&lt;=<span class="sig">wd</span>;  <span class="cm">// R0 write ignored!</span>
+  <span class="kw">end</span>
+  <span class="kw">assign</span> <span class="sig">rd1</span>=(<span class="sig">ra1</span>==<span class="num">2'b00</span>)?<span class="num">32'b0</span>:<span class="sig">r</span>[<span class="sig">ra1</span>];  <span class="cm">// R0 read = always 0</span>
+  <span class="kw">assign</span> <span class="sig">rd2</span>=(<span class="sig">ra2</span>==<span class="num">2'b00</span>)?<span class="num">32'b0</span>:<span class="sig">r</span>[<span class="sig">ra2</span>];
+<span class="kw">endmodule</span></div></div>
+</div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div class="page" id="quiz">
+  <div class="ph"><span class="tag-sm">QUIZ</span> All 35 Quiz Questions &amp; Complete Answers</div>
+  <div class="pc">
+<div class="qs">
+<h3>&#10067; All 35 Quiz Questions with Answers</h3>
+
+<div class="qc"><div class="qn">Q1 &mdash; What is the output of a 2-input AND gate when A=1, B=0?</div>
+<div class="qa">&#10004;&#65039; 0 &nbsp;(AND is 1 ONLY when BOTH inputs are 1)</div></div>
+
+<div class="qc"><div class="qn">Q2 &mdash; What is the output of a 2-input OR gate when A=0, B=0?</div>
+<div class="qa">&#10004;&#65039; 0 &nbsp;(OR is 0 ONLY when BOTH inputs are 0)</div></div>
+
+<div class="qc"><div class="qn">Q3 &mdash; What is the output of a NOT gate when A=1?</div>
+<div class="qa">&#10004;&#65039; 0</div></div>
+
+<div class="qc"><div class="qn">Q4 &mdash; Which gate is called the Universal Gate? Why?</div>
+<div class="qa">&#10004;&#65039; NAND (and NOR). Any Boolean function can be built using only NAND (or only NOR) gates.</div>
+<div class="qe">NOT=NAND(A,A). AND=NOT(NAND(A,B)). OR=NAND(NOT A, NOT B). All 3 primitives built &rarr; universal!</div></div>
+
+<div class="qc"><div class="qn">Q5 &mdash; DeMorgan's First Theorem: (A&middot;B)' = ?</div>
+<div class="qa">&#10004;&#65039; A' + B' &nbsp;(NAND = OR with inverted inputs)</div></div>
+
+<div class="qc"><div class="qn">Q6 &mdash; DeMorgan's Second Theorem: (A+B)' = ?</div>
+<div class="qa">&#10004;&#65039; A' &middot; B' &nbsp;(NOR = AND with inverted inputs)</div></div>
+
+<div class="qc"><div class="qn">Q7 &mdash; What does SOP stand for? Give example.</div>
+<div class="qa">&#10004;&#65039; Sum Of Products. F = AB + A'C + BC (OR of AND terms)</div></div>
+
+<div class="qc"><div class="qn">Q8 &mdash; What is a minterm?</div>
+<div class="qa">&#10004;&#65039; AND term containing every variable (complemented if 0, as-is if 1) for a row where F=1.</div>
+<div class="qe">A=1,B=0,C=1: minterm m5 = AB'C &nbsp;(binary 101 = 5)</div></div>
+
+<div class="qc"><div class="qn">Q9 &mdash; Why must K-map use Gray code order?</div>
+<div class="qa">&#10004;&#65039; Adjacent cells must differ by exactly 1 bit for the combining theorem to work.</div>
+<div class="qe">Natural binary: 01 next to 10 = 2-bit difference, NOT adjacent logically. Gray code: 01,11,10 each differ by 1 bit.</div></div>
+
+<div class="qc"><div class="qn">Q10 &mdash; What is the maximum group size in a 3-variable K-map?</div>
+<div class="qa">&#10004;&#65039; 8 (= 2^3). A group of 8 covers ALL cells &rarr; F = 1</div></div>
+
+<div class="qc"><div class="qn">Q11 &mdash; What is a Prime Implicant (PI)?</div>
+<div class="qa">&#10004;&#65039; A PI is the LARGEST possible group of 1s that cannot be enlarged further (while staying a power-of-2 rectangle).</div></div>
+
+<div class="qc"><div class="qn">Q12 &mdash; What is an Essential Prime Implicant (EPI)?</div>
+<div class="qa">&#10004;&#65039; A PI that covers at least one "1" that no other PI covers. MUST be in every minimal cover.</div></div>
+
+<div class="qc"><div class="qn">Q13 &mdash; Can groups overlap in a K-map?</div>
+<div class="qa">&#10004;&#65039; YES! Overlapping is allowed and often necessary to make each group as large as possible.</div></div>
+
+<div class="qc"><div class="qn">Q14 &mdash; What is the difference between wire and reg in Verilog?</div>
+<div class="qa">&#10004;&#65039; wire: net/connection, driven by assign or module output, for combinational logic.<br>reg: procedural variable, used inside always blocks. Despite name, NOT necessarily a hardware register!</div></div>
+
+<div class="qc"><div class="qn">Q15 &mdash; What operator is used for 2:1 MUX behavior in one line?</div>
+<div class="qa">&#10004;&#65039; Ternary operator: <code>assign y = sel ? b : a;</code></div></div>
+
+<div class="qc"><div class="qn">Q16 &mdash; What happens if you forget "default" in a case statement?</div>
+<div class="qa">&#10004;&#65039; Latch is inferred! Verilog assumes "hold previous value" for unspecified cases = storage element = latch!</div></div>
+
+<div class="qc"><div class="qn">Q17 &mdash; What is the Full Adder equation for Cout?</div>
+<div class="qa">&#10004;&#65039; Cout = AB + Cin(A&oplus;B) = AB + ACin + BCin</div></div>
+
+<div class="qc"><div class="qn">Q18 &mdash; Why is Ripple Carry Adder slow?</div>
+<div class="qa">&#10004;&#65039; Carry must propagate serially through every FA stage. N-bit RCA delay = N &times; t_FA. For 64-bit: 128 gate delays!</div></div>
+
+<div class="qc"><div class="qn">Q19 &mdash; Overflow flag (OF) formula for signed addition?</div>
+<div class="qa">&#10004;&#65039; OF = C_in_MSB &oplus; C_out_MSB = C(n-1) &oplus; Cout</div>
+<div class="qe">XOR of carry INTO MSB and carry OUT of MSB. If they disagree, sign bit was corrupted by carry = overflow!</div></div>
+
+<div class="qc"><div class="qn">Q20 &mdash; What is the forbidden state of SR latch? What happens?</div>
+<div class="qa">&#10004;&#65039; S=R=1. Both outputs Q and Q' are forced to 0 (violating Q&ne;Q'). On release (S=R=0): race condition &rarr; non-deterministic output!</div></div>
+
+<div class="qc"><div class="qn">Q21 &mdash; What is the difference between a latch and a flip-flop?</div>
+<div class="qa">&#10004;&#65039; Latch: level-triggered. Transparent while enable=HIGH. Output follows input during window.<br>
+Flip-flop: edge-triggered. Samples input at ONE instant (clock edge). Output frozen between edges.</div></div>
+
+<div class="qc"><div class="qn">Q22 &mdash; What does &lt;= (nonblocking) do in Verilog?</div>
+<div class="qa">&#10004;&#65039; Schedules assignment at END of time step. All RHS evaluated first, then all LHS updated. Used in posedge always blocks to prevent race conditions in cascaded flip-flops.</div></div>
+
+<div class="qc"><div class="qn">Q23 &mdash; What is setup time violation?</div>
+<div class="qa">&#10004;&#65039; D changes LESS than t_su before clock edge &rarr; flip-flop may capture wrong value or go metastable.</div></div>
+
+<div class="qc"><div class="qn">Q24 &mdash; What is metastability?</div>
+<div class="qa">&#10004;&#65039; FF enters undefined state between 0 and 1 when D changes inside setup/hold window. Output takes unpredictable extra time to resolve. In CDC: synchronizer adds latency but reduces metastability probability exponentially.</div></div>
+
+<div class="qc"><div class="qn">Q25 &mdash; What does SIPO stand for? Name one application.</div>
+<div class="qa">&#10004;&#65039; Serial-In Parallel-Out. Application: UART receiver &mdash; collects serial bits one at a time, outputs all 8 bits in parallel to the CPU.</div></div>
+
+<div class="qc"><div class="qn">Q26 &mdash; Difference between Synchronous and Ripple counter?</div>
+<div class="qa">&#10004;&#65039; Ripple: each FF clocks the next &rarr; glitchy, delay=N&times;t_FF.<br>
+Synchronous: all FFs share one clock &rarr; clean, delay=t_logic+t_FF (constant for any N).</div></div>
+
+<div class="qc"><div class="qn">Q27 &mdash; What does "terminal count (TC)" in a counter mean?</div>
+<div class="qa">&#10004;&#65039; TC=1 when counter reaches maximum value (1111 for 4-bit = 15). Can cascade: TC of stage-1 = EN of stage-2 to build larger counter.</div></div>
+
+<div class="qc"><div class="qn">Q28 &mdash; In register file, are reads synchronous or asynchronous?</div>
+<div class="qa">&#10004;&#65039; ASYNCHRONOUS (combinational). Reads are just MUX operations &mdash; no clock needed. Outputs appear instantly when address changes. Only WRITES are synchronous (posedge clk).</div></div>
+
+<div class="qc"><div class="qn">Q29 &mdash; Why is RISC-V register x0 (R0) hardwired to zero?</div>
+<div class="qa">&#10004;&#65039; Constant 0 is needed very frequently (initialize, compare, NOP via ADD x0,x0,x0). Hardwiring saves one read port to a constant-0 generator. Writes to x0 are silently ignored.</div></div>
+
+<div class="qc"><div class="qn">Q30 &mdash; Moore vs Mealy: where is output written?</div>
+<div class="qa">&#10004;&#65039; Moore: output written INSIDE state circle (f(state) only). Output changes only on state transition.<br>
+Mealy: output written ON transition ARROW (f(state + input)). Output can change mid-cycle when input changes!</div></div>
+
+<div class="qc"><div class="qn">Q31 &mdash; What is the FSM for a 1011 sequence detector: how many states?</div>
+<div class="qa">&#10004;&#65039; 5 states (Moore): S0=idle, S1=got1, S2=got10, S3=got101, S4=got1011(output=1)</div></div>
+
+<div class="qc"><div class="qn">Q32 &mdash; 1011 detector: After detecting "1011", input is 1. Next state?</div>
+<div class="qa">&#10004;&#65039; S1 (NOT S0!). That trailing "1" could be the start of a new "1011". Overlap must be handled!</div></div>
+
+<div class="qc"><div class="qn">Q33 &mdash; What is one-hot encoding? Advantage?</div>
+<div class="qa">&#10004;&#65039; N states &rarr; N FFs, only ONE is 1 at a time. Advantage: simple next-state logic (each state transition is just an OR), preferred by FPGAs which have abundant flip-flops.</div></div>
+
+<div class="qc"><div class="qn">Q34 &mdash; What is two's complement of 8-bit 0 (00000000)?</div>
+<div class="qa">&#10004;&#65039; 00000000 &rarr; ~(00000000) = 11111111, +1 = 100000000. Drop carry &rarr; 00000000. Zero is its own two's complement!</div></div>
+
+<div class="qc"><div class="qn">Q35 &mdash; For 4-bit two's complement: range is &minus;8 to +7. What is the two's complement representation of &minus;8?</div>
+<div class="qa">&#10004;&#65039; 1000. MSB=1 (negative), value = &minus;8 (only +8 doesn't fit in positive range since max=+7). ~(1000)=0111, +1=1000 &rarr; still 1000! &minus;8 is its own two's complement (no positive counterpart in 4-bit)!</div></div>
+
+</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<a href="#top" class="btt">&#8679;</a>
+</div><!-- wrap -->
+</body></html>
